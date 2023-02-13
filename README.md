@@ -20,6 +20,9 @@ To run this project on your local machine, follow these steps:
 6. In the `server` directory, run `npm start` to start the backend
 7. Visit `http://127.0.0.1:5173/` to access the app
 
+## Development Status
+This project is still in development mode and improvements are being made regularly.
+
 ## Contributors
 - [Mahdi Ettehadnejad](https://github.com/mahdi-Eth)
 - [Mohammd Dehghani](https://github.com/Mohammad-dn)
@@ -27,7 +30,3 @@ To run this project on your local machine, follow these steps:
 
 ## Author
 - Mahdi Ettehadnejad
-
-
-## Development Status
-This project is still in development mode and improvements are being made regularly.
