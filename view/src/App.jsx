@@ -1,9 +1,21 @@
-import React from 'react';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import { routes } from "./routes";
 
 function App() {
   return (
-    <h1>TEST</h1>
-  )
+    <Routes>
+      {Object.keys(routes).map((route) => {
+        return (
+          <Route
+            key={routes[route].key}
+            element={routes[route].element}
+            path={routes[route].path}
+          />
+        );
+      })}
+    </Routes>
+  );
 }
 
-export default App
+export default App;
