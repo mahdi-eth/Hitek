@@ -3,7 +3,11 @@
 module.exports = {
   content: ["./index.html", "./src/**/*.{js,jsx}"],
   theme: {
-    extend: {},
+    extend: {
+      backgroundColor: {
+        'default': '#F7F7F7',
+      },
+    },
     colors: {
       primary: "#1565D8",
       secandry: "#FAAD13",
