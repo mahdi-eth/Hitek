@@ -11,10 +11,15 @@ export function Signup() {
         <img style={{ width: "700px" }} src={img} alt="An image" />
       </div>
       <div className="right-side mx-auto my-auto flex items-center justify-center text-center">
-        <form>
+        <form className="min-w-360">
           <h2 className="text-3xl mb-6">Let&apos;s join us</h2>
-          <button className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow flex items-center">
-            <FcGoogle className="mr-2" /> Sign Up with Google
+          <button
+            type="button"
+            className="bg-primary relative transition duration-150 hover:bg-primary_hover font-semibold py-3 w-full rounded shadow flex items-center justify-center">
+            <div className="absolute left-1 rounded bg-white px-2 py-2" >
+            <FcGoogle size={24}/>
+            </div>
+            <p className="text-white">Sign up with Google</p>
           </button>
           <div className="mb-6">
             <label
