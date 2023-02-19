@@ -1,9 +1,11 @@
 import React from "react";
 import { ProductPage } from "../pages";
+import { Signup } from "../pages/signup";
+
 export const routes = {
   LAUNCHSCREEN: {
     path: "/",
-    element: <h1>Test</h1>,
+    element: <Signup />,
     key: 1
   },
   PRODUCTPAGE:{
