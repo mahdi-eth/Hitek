@@ -25,7 +25,9 @@ export function Signup() {
   return (
     <div className="flex items-center justify-center mt-2 flex-col md:flex-row">
       <div className="left-side flex flex-col justify-center items-start">
-        <img className="md:mt-6 md:ml-40" src={logo} alt="logo" />
+        <Link className="md:mt-6 md:ml-40" to="/">
+          <img src={logo} alt="logo" />
+        </Link>
         <img
           className="hidden md:block"
           style={makeResponsiveImg()}
@@ -113,7 +115,9 @@ export function Signup() {
           </button>
           <p className="text-sm">
             Already have an account?{" "}
-            <Link to="/signin" className="text-primary cursor-pointer">Sign in now</Link>{" "}
+            <Link to="/signin" className="text-primary cursor-pointer">
+              Sign in now
+            </Link>{" "}
           </p>
         </form>
       </div>
