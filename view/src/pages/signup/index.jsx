@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import logo from "../../assets/images/logo/logo.svg";
 import img from "../../assets/images/signuppage/bitmap.png";
 import { FcGoogle } from "react-icons/fc";
+import { Link } from "react-router-dom";
 
 export function Signup() {
   const [width, setWidth] = useState(window.innerWidth);
@@ -25,7 +26,12 @@ export function Signup() {
     <div className="flex items-center justify-center mt-2 flex-col md:flex-row">
       <div className="left-side flex flex-col justify-center items-start">
         <img className="md:mt-6 md:ml-40" src={logo} alt="logo" />
-        <img className="hidden md:block" style={makeResponsiveImg()} src={img} alt="An image" />
+        <img
+          className="hidden md:block"
+          style={makeResponsiveImg()}
+          src={img}
+          alt="An image"
+        />
       </div>
       <div className="right-side mx-auto my-auto flex items-center flex-col text-center mt-12">
         <h2 className="text-3xl font-semibold mb-6 text-_Gray">
@@ -107,9 +113,7 @@ export function Signup() {
           </button>
           <p className="text-sm">
             Already have an account?{" "}
-            <a href="#" className="text-primary">
-              Sign in now
-            </a>{" "}
+            <Link to="/signin" className="text-primary cursor-pointer">Sign in now</Link>{" "}
           </p>
         </form>
       </div>

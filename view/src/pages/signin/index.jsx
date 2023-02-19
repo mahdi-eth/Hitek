@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import logo from "../../assets/images/logo/logo.svg";
 import img from "../../assets/images/singinpage/Image.png";
 import { FcGoogle } from "react-icons/fc";
+import { Link } from "react-router-dom";
 
 export function Signin() {
   const [width, setWidth] = useState(window.innerWidth);
@@ -101,9 +102,9 @@ export function Signin() {
           </button>
           <p className="text-sm">
             Don’t have an account?{" "}
-            <a href="#" className="text-primary">
+            <Link to="/signup" className="text-primary cursor-pointer">
               Sign up now
-            </a>{" "}
+            </Link>{" "}
           </p>
         </form>
       </div>

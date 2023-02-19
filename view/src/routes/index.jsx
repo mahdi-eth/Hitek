@@ -1,6 +1,5 @@
 import React from "react";
-import { Signin } from "../pages";
-import { Signup } from "../pages";
+import { Signup, Error404, Signin } from "../pages";
 
 export const routes = {
   LAUNCHSCREEN: {
@@ -16,6 +15,11 @@ export const routes = {
   SIGNIN: {
     path: "/signin",
     element: <Signin />,
+    key: 3
+  },
+  ERROR404: {
+    path: "/notfound",
+    element: <Error404 />,
     key: 3
   }
 };
