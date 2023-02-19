@@ -1,5 +1,6 @@
 import React from "react";
-import { Signup } from "../pages/signup";
+import { Signin } from "../pages";
+import { Signup } from "../pages";
 
 export const routes = {
   LAUNCHSCREEN: {
@@ -11,5 +12,10 @@ export const routes = {
     path: "/signup",
     element: <Signup />,
     key: 2
+  },
+  SIGNIN: {
+    path: "/signin",
+    element: <Signin />,
+    key: 3
   }
 };
