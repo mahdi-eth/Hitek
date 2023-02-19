@@ -10,55 +10,63 @@ export function Signup() {
         <img className="mt-6 ml-40" src={logo} alt="logo" />
         <img style={{ width: "700px" }} src={img} alt="An image" />
       </div>
-      <div className="right-side mx-auto my-auto flex items-center justify-center text-center">
-        <form className="min-w-360">
-          <h2 className="text-3xl mb-6">Let&apos;s join us</h2>
+      <div className="right-side mx-auto my-auto flex items-center flex-col text-center mt-12">
+        <h2 className="text-3xl font-semibold mb-6 text-_Gray">
+          Let&apos;s join us
+        </h2>
+        <form className="min-w-360 text-left">
           <button
             type="button"
-            className="bg-primary relative transition duration-150 hover:bg-primary_hover font-semibold py-3 w-full rounded shadow flex items-center justify-center">
-            <div className="absolute left-1 rounded bg-white px-2 py-2" >
-            <FcGoogle size={24}/>
+            className="bg-primary mb-6 relative transition duration-150 hover:bg-primary_hover font-semibold py-3 w-full rounded-lg shadow flex items-center justify-center">
+            <div className="absolute left-1 rounded-lg bg-white px-2 py-2">
+              <FcGoogle size={24} />
             </div>
             <p className="text-white">Sign up with Google</p>
           </button>
+          <div className="flex items-center mb-6">
+            <div className="flex-1 h-px bg-gray-200"></div>
+            <p className="mx-4 text-center font-bold text-_Gray">
+              Or, sign up with your email
+            </p>
+            <div className="flex-1 h-px bg-gray-200"></div>
+          </div>
+          <div className="mb-6">
+            <label
+              htmlFor="your-name"
+              className="block mb-2 text-sm font-medium text-_Gray dark:text-white">
+              Your name*
+            </label>
+            <input
+              type="password"
+              id="your-name"
+              placeholder="Enter name"
+              className="shadow-sm px-5 bg-white py-3 border border-gray-300 text-_Gray text-sm rounded-lg focus-visible:outline-primary focus-visible:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus-visible:outline-primary dark:focus-visible:border-blue-500 dark:shadow-sm-light"
+            />
+          </div>
           <div className="mb-6">
             <label
               htmlFor="email"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-              Your email
+              className="block mb-2 text-sm font-medium text-_Gray dark:text-white">
+              Email address*
             </label>
             <input
               type="email"
               id="email"
-              className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
-              placeholder="name@flowbite.com"
-              required
+              className="shadow-sm px-5 bg-white py-3 border border-gray-300 text-_Gray text-sm rounded-lg focus-visible:outline-primary focus-visible:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus-visible:outline-primary dark:focus-visible:border-blue-500 dark:shadow-sm-light"
+              placeholder="Enter email address"
             />
           </div>
           <div className="mb-6">
             <label
               htmlFor="password"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+              className="block mb-2 text-sm font-medium text-_Gray dark:text-white">
               Your password
             </label>
             <input
               type="password"
               id="password"
-              className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
-              required
-            />
-          </div>
-          <div className="mb-6">
-            <label
-              htmlFor="repeat-password"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-              Repeat password
-            </label>
-            <input
-              type="password"
-              id="repeat-password"
-              className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
-              required
+              placeholder="Enter password"
+              className="shadow-sm px-5 bg-white py-3 border border-gray-300 text-_Gray text-sm rounded-lg focus-visible:outline-primary focus-visible:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus-visible:outline-primary dark:focus-visible:border-blue-500 dark:shadow-sm-light"
             />
           </div>
           <div className="flex items-start mb-6">
@@ -66,27 +74,26 @@ export function Signup() {
               <input
                 id="terms"
                 type="checkbox"
-                value=""
-                className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
-                required
+                className="w-4 h-4 border px-5 cursor-pointer border-gray-300 rounded-lg bg-white py-3 focus-visible:ring-3 focus-visible:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus-visible:ring-blue-600 dark:ring-offset-gray-800 dark:focus-visible:ring-offset-gray-800"
               />
             </div>
             <label
               htmlFor="terms"
-              className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-              I agree with the{" "}
-              <a
-                href="#"
-                className="text-blue-600 hover:underline dark:text-blue-500">
-                terms and conditions
-              </a>
+              className="ml-2 cursor-pointer text-sm font-medium text-_Gray dark:text-gray-300">
+              Agree to terms & conditions
             </label>
           </div>
           <button
             type="submit"
-            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            Register new account
+            className="bg-primary mb-6 text-white transition duration-150 hover:bg-primary_hover font-semibold py-3 w-full rounded-lg shadow flex items-center justify-center">
+            Sign up
           </button>
+          <p className="text-sm">
+            Already have an account?{" "}
+            <a href="#" className="text-primary">
+              Sign in now
+            </a>{" "}
+          </p>
         </form>
       </div>
     </div>
