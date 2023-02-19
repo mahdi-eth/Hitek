@@ -1,20 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../../assets/images/logo/logo.svg";
 import img from "../../assets/images/signuppage/bitmap.png";
 import { FcGoogle } from "react-icons/fc";
 
 export function Signup() {
+  const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const makeResponsiveImg = () => {
+    if (width >= 1127) return { width: "700px" };
+    else if (width > 1044) return { width: "600px" };
+    else if (width > 921) return { width: "500px" };
+    else if (width > 860) return { width: "450px" };
+    else if (width < 860 && width > 768) return { width: "400px" };
+    return null;
+  };
+
   return (
-    <div className="flex">
-      <div className="left-side">
-        <img className="mt-6 ml-40" src={logo} alt="logo" />
-        <img style={{ width: "700px" }} src={img} alt="An image" />
+    <div className="flex items-center justify-center mt-2 flex-col md:flex-row">
+      <div className="left-side flex flex-col justify-center items-start">
+        <img className="md:mt-6 md:ml-40" src={logo} alt="logo" />
+        <img className="hidden md:block" style={makeResponsiveImg()} src={img} alt="An image" />
       </div>
       <div className="right-side mx-auto my-auto flex items-center flex-col text-center mt-12">
         <h2 className="text-3xl font-semibold mb-6 text-_Gray">
           Let&apos;s join us
         </h2>
-        <form className="min-w-360 text-left">
+        <form className="sm:min-w-360 text-left">
           <button
             type="button"
             className="bg-primary mb-6 relative transition duration-150 hover:bg-primary_hover font-semibold py-3 w-full rounded-lg shadow flex items-center justify-center">
