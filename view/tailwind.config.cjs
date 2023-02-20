@@ -18,7 +18,10 @@ module.exports = {
         _Gray_hover: "#183B56"
       },
       minWidth: {
-        360: "360px"
+        360: "360px",
+      },
+      maxWidth: {
+        270: "270px"
       }
     },
   },
