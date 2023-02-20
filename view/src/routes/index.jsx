@@ -1,5 +1,5 @@
 import React from "react";
-import { Signup, Error404, Signin } from "../pages";
+import { Signup, Error404, Signin, Products } from "../pages";
 
 export const routes = {
   LAUNCHSCREEN: {
@@ -20,6 +20,11 @@ export const routes = {
   ERROR404: {
     path: "/notfound",
     element: <Error404 />,
-    key: 3
+    key: 4
+  },
+  PRODUCTS: {
+    path: "/all-products",
+    element: <Products />,
+    key: 5
   }
 };
