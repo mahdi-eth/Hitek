@@ -26,7 +26,7 @@ export const Dropdown = ({ value }) => {
     <div className="relative inline-block text-left">
       <button
         type="button"
-        className="inline-flex border-none justify-center w-full py-2 text-sm font-medium text-_Gray focus:outline-none"
+        className="inline-flex border-none justify-center w-full py-2 text-sm font-medium text-inherit focus:outline-none"
         onClick={toggleDropdown}
         ref={dropdownRef}>
         {value}

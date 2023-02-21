@@ -1,9 +1,12 @@
-import React from "react";
+import React, {  useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/logo/logo.svg";
 import { Dropdown } from "../../components";
 
 export function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
+
   return (
     <nav className="px-2 bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700 mt-4">
       <div className="container flex flex-wrap items-center justify-between mx-auto">
@@ -11,6 +14,7 @@ export function Header() {
           <img src={logo} className="h-6 mr-3 sm:h-10" alt="Logo" />
         </Link>
         <button
+          onClick={() => setIsOpen(false)}
           data-collapse-toggle="navbar-dropdown"
           type="button"
           className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
@@ -29,8 +33,39 @@ export function Header() {
               clipRule="evenodd"></path>
           </svg>
         </button>
+        {isOpen && (
+          <ul className="flex transform duration-1000 z-10 flex-col text-center justify-center fixed top-0 left-0 w-full items-center bg-gray-50 dark:bg-gray-80 dark:border-gray-700">
+            <li className="w-full font-semibold py-4 bg-primary text-white border-b border-gray-300">
+              <Link
+                to="/"
+                className="block w-full"
+                aria-current="page">
+                Home
+              </Link>
+            </li>
+            <li className="w-full py-4 bg-primary text-white border-b border-gray-300">
+              <Dropdown value={"iPhones"} />
+            </li>{" "}
+            <li className="w-full py-4 bg-primary text-white border-b border-gray-300">
+              <Dropdown value={"Phones"} />
+            </li>{" "}
+            <li className="w-full py-4 bg-primary text-white border-b border-gray-300">
+              <Dropdown value={"Tablets"} />
+            </li>{" "}
+            <li className="w-full py-4 bg-primary text-white border-b border-gray-300">
+              <Dropdown value={"Macbooks"} />
+            </li>
+            <li className="w-full py-4 bg-primary text-white border-b border-gray-300">
+              <Link
+                to="/signup"
+                className="bg-primary w-full text-white font-semibold text-base">
+                Sign up
+              </Link>
+            </li>
+          </ul>
+        )}
         <div className="hidden w-full md:block md:w-auto" id="navbar-dropdown">
-          <ul className="flex items-center py-4 lg:px-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <ul className="flex items-center text-_Gray py-4 lg:px-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             <li>
               <Link
                 to="/"
@@ -52,7 +87,9 @@ export function Header() {
               <Dropdown value={"Macbooks"} />
             </li>
             <li className="w-full">
-              <Link to="/signup" className="lg:border lg:border-primary text-primary lg:shadow lg:py-2 underline lg:no-underline lg:px-9 font-semibold text-base lg:ml-14 rounded-lg">
+              <Link
+                to="/signup"
+                className="lg:border lg:border-primary text-primary lg:shadow lg:py-2 underline lg:no-underline lg:px-9 font-semibold text-base lg:ml-14 rounded-lg">
                 Sign up
               </Link>
             </li>
