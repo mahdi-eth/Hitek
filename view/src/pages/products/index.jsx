@@ -75,7 +75,15 @@ export function Products() {
             </label>
           </div>
         </div>
-        <div className="right-side">
+        <div className="right-side grid grid-cols-3 gap-5">
+          <ProductCard image={img} name={"Nitro 5 nitro5-55-70uz"} price={4000} score={4.5} />
+          <ProductCard image={img} name={"Nitro 5 nitro5-55-70uz"} price={4000} score={4.5} />
+          <ProductCard image={img} name={"Nitro 5 nitro5-55-70uz"} price={4000} score={4.5} />
+          <ProductCard image={img} name={"Nitro 5 nitro5-55-70uz"} price={4000} score={4.5} />
+          <ProductCard image={img} name={"Nitro 5 nitro5-55-70uz"} price={4000} score={4.5} />
+          <ProductCard image={img} name={"Nitro 5 nitro5-55-70uz"} price={4000} score={4.5} />
+          <ProductCard image={img} name={"Nitro 5 nitro5-55-70uz"} price={4000} score={4.5} />
+          <ProductCard image={img} name={"Nitro 5 nitro5-55-70uz"} price={4000} score={4.5} />
           <ProductCard image={img} name={"Nitro 5 nitro5-55-70uz"} price={4000} score={4.5} />
         </div>
       </section>
