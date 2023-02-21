@@ -4,7 +4,7 @@ import { AiFillStar } from "react-icons/ai";
 
 export const ProductCard = ({ image, name, price, score }) => {
   return (
-    <div className="max-w-sm flex flex-col gap-8 items-center px-12 py-7 rounded-lg overflow-hidden shadow-lg bg-blue-50">
+    <div className="w-full flex flex-col gap-8 items-center py-7 rounded-lg overflow-hidden shadow-lg bg-blue-50">
       <img
         className="w-full object-cover"
         style={{ width: "150px" }}
@@ -19,7 +19,7 @@ export const ProductCard = ({ image, name, price, score }) => {
           {score}
         </div>
       </div>
-      <button className="bg-primary hover:bg-primary_hover text-white py-2 px-1 rounded">
+      <button className="bg-primary hover:bg-primary_hover text-white py-2 px-12 sm:px-8 lg:px-12 xl:px-20 rounded">
         Buy
       </button>
     </div>

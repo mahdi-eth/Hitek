@@ -5,7 +5,7 @@ import { Dropdown } from "../../components";
 
 export function Header() {
   return (
-    <nav className="px-2 bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+    <nav className="px-2 bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700 mt-4">
       <div className="container flex flex-wrap items-center justify-between mx-auto">
         <Link to="/" className="flex items-center">
           <img src={logo} className="h-6 mr-3 sm:h-10" alt="Logo" />
@@ -30,7 +30,7 @@ export function Header() {
           </svg>
         </button>
         <div className="hidden w-full md:block md:w-auto" id="navbar-dropdown">
-          <ul className="flex items-center p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <ul className="flex items-center py-4 lg:px-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             <li>
               <Link
                 to="/"
@@ -51,15 +51,15 @@ export function Header() {
             <li>
               <Dropdown value={"Macbooks"} />
             </li>
-            <li>
-              <Link to="/signup" className="border border-primary text-primary shadow py-2 px-9 font-semibold text-base ml-14 rounded-lg">
+            <li className="w-full">
+              <Link to="/signup" className="lg:border lg:border-primary text-primary lg:shadow lg:py-2 underline lg:no-underline lg:px-9 font-semibold text-base lg:ml-14 rounded-lg">
                 Sign up
               </Link>
             </li>
           </ul>
         </div>
       </div>
-      <hr className="border-gray-300 w-full" />
+      <hr className="border-gray-300 w-full sm:mt-4 mt-0" />
     </nav>
   );
 }
