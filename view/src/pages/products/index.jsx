@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { AiOutlineSearch } from "react-icons/ai";
 import { ProductCard, Checkbox } from "../../components";
+import { Header } from "../../layout";
+import { AiOutlineSearch } from "react-icons/ai";
 import img from "../../assets/images/product/product.png";
 
 export function Products() {
@@ -15,7 +16,7 @@ export function Products() {
 
   return (
     <div className="container px-36">
-      {/* <Header />  to be added */}
+      <Header />
       <p className="mt-5">
         <Link to="/">Home</Link> / <Link>Digital products</Link> /{" "}
         <Link>Macbooks</Link>{" "}
@@ -76,17 +77,63 @@ export function Products() {
           </div>
         </div>
         <div className="right-side grid grid-cols-3 gap-5">
-          <ProductCard image={img} name={"Nitro 5 nitro5-55-70uz"} price={4000} score={4.5} />
-          <ProductCard image={img} name={"Nitro 5 nitro5-55-70uz"} price={4000} score={4.5} />
-          <ProductCard image={img} name={"Nitro 5 nitro5-55-70uz"} price={4000} score={4.5} />
-          <ProductCard image={img} name={"Nitro 5 nitro5-55-70uz"} price={4000} score={4.5} />
-          <ProductCard image={img} name={"Nitro 5 nitro5-55-70uz"} price={4000} score={4.5} />
-          <ProductCard image={img} name={"Nitro 5 nitro5-55-70uz"} price={4000} score={4.5} />
-          <ProductCard image={img} name={"Nitro 5 nitro5-55-70uz"} price={4000} score={4.5} />
-          <ProductCard image={img} name={"Nitro 5 nitro5-55-70uz"} price={4000} score={4.5} />
-          <ProductCard image={img} name={"Nitro 5 nitro5-55-70uz"} price={4000} score={4.5} />
+          <ProductCard
+            image={img}
+            name={"Nitro 5 nitro5-55-70uz"}
+            price={4000}
+            score={4.5}
+          />
+          <ProductCard
+            image={img}
+            name={"Nitro 5 nitro5-55-70uz"}
+            price={4000}
+            score={4.5}
+          />
+          <ProductCard
+            image={img}
+            name={"Nitro 5 nitro5-55-70uz"}
+            price={4000}
+            score={4.5}
+          />
+          <ProductCard
+            image={img}
+            name={"Nitro 5 nitro5-55-70uz"}
+            price={4000}
+            score={4.5}
+          />
+          <ProductCard
+            image={img}
+            name={"Nitro 5 nitro5-55-70uz"}
+            price={4000}
+            score={4.5}
+          />
+          <ProductCard
+            image={img}
+            name={"Nitro 5 nitro5-55-70uz"}
+            price={4000}
+            score={4.5}
+          />
+          <ProductCard
+            image={img}
+            name={"Nitro 5 nitro5-55-70uz"}
+            price={4000}
+            score={4.5}
+          />
+          <ProductCard
+            image={img}
+            name={"Nitro 5 nitro5-55-70uz"}
+            price={4000}
+            score={4.5}
+          />
+          <ProductCard
+            image={img}
+            name={"Nitro 5 nitro5-55-70uz"}
+            price={4000}
+            score={4.5}
+          />
         </div>
       </section>
+      
     </div>
   );
 }
