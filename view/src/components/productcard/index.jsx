@@ -19,7 +19,7 @@ export const ProductCard = ({ image, name, price, score }) => {
           {score}
         </div>
       </div>
-      <button className="bg-primary hover:bg-primary_hover text-white py-2 px-12 sm:px-8 lg:px-12 xl:px-20 rounded">
+      <button className="bg-primary hover:bg-primary_hover text-white py-2 px-12 sm:px-8 lg:px-12 xl:px-20 rounded-lg">
         Buy
       </button>
     </div>

@@ -65,11 +65,11 @@ export function Header() {
           </ul>
         )}
         <div className="hidden w-full md:block md:w-auto" id="navbar-dropdown">
-          <ul className="flex items-center text-_Gray py-4 lg:px-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <ul className="flex items-center text-_Gray py-4 lg:px-4 mt-4 border border-gray-100 bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             <li>
               <Link
                 to="/"
-                className="block py-2 pl-3 pr-4 text-_Gray bg-blue-700 rounded-lg md:bg-transparent md:p-0 md:dark:text-white dark:bg-blue-600 md:dark:bg-transparent"
+                className="block pt-2 py-2 text-_Gray border-b-2 border-white hover:border-primary md:bg-transparent md:dark:text-white dark:bg-blue-600 md:dark:bg-transparent"
                 aria-current="page">
                 Home
               </Link>
@@ -89,7 +89,7 @@ export function Header() {
             <li className="w-full">
               <Link
                 to="/signup"
-                className="lg:border lg:border-primary text-primary lg:shadow lg:py-2 underline lg:no-underline lg:px-9 font-semibold text-base lg:ml-14 rounded-lg">
+                className="border-b-2 font-medium border-b-white hover:border-b-primary lg:border lg:border-primary hover:lg:bg-primary hover:lg:text-white transform duration-150 text-primary lg:shadow pb-2 lg:py-2 lg:px-9 text-base lg:ml-14 lg:rounded-lg">
                 Sign up
               </Link>
             </li>

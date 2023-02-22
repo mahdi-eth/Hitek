@@ -6,7 +6,7 @@ import img from "../../assets/images/product/product.png";
 
 export function Products() {
   return (
-    <div className="container mx-auto lg:minmin-w-fit md:px-24 sm:px-16 px-8">
+    <div className="container mx-auto lg:minmin-w-fit md:px-20 sm:px-16 px-8">
       <Header />
       <p className="mt-5">
         <Link to="/">Home</Link> / <Link>Digital products</Link> /{" "}
