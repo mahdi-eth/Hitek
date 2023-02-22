@@ -41,7 +41,7 @@ export const Dropdown = ({ value }) => {
       </button>
 
       {isOpen && (
-        <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white">
+        <div className="origin-top-right z-10 absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white">
           <div
             className="py-1"
             role="menu"
@@ -49,19 +49,19 @@ export const Dropdown = ({ value }) => {
             aria-labelledby="options-menu">
             <a
               href="#"
-              className="block px-4 py-2 text-sm text-_Gray hover:bg-gray-100 hover:text-gray-900"
+              className="block px-4 py-2 z-10 text-sm text-_Gray hover:bg-gray-100 hover:text-gray-900"
               role="menuitem">
               Dropdown 1
             </a>
             <a
               href="#"
-              className="block px-4 py-2 text-sm text-_Gray hover:bg-gray-100 hover:text-gray-900"
+              className="block px-4 py-2 z-10 text-sm text-_Gray hover:bg-gray-100 hover:text-gray-900"
               role="menuitem">
               Dropdown 2
             </a>
             <a
               href="#"
-              className="block px-4 py-2 text-sm text-_Gray hover:bg-gray-100 hover:text-gray-900"
+              className="block px-4 py-2 z-10 text-sm text-_Gray hover:bg-gray-100 hover:text-gray-900"
               role="menuitem">
               Dropdown 3
             </a>
