@@ -4,6 +4,9 @@ module.exports = {
   content: ["./index.html", "./src/**/*.{js,jsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["HK Grotesk", "sans-serif"]
+      },
       backgroundColor: {
         default: "#F7F7F7"
       },
@@ -19,8 +22,11 @@ module.exports = {
       },
       minWidth: {
         360: "360px"
+      },
+      maxWidth: {
+        270: "270px"
       }
-    },
+    }
   },
-  plugins: []
+  plugins: [require("@tailwindcss/typography")]
 };

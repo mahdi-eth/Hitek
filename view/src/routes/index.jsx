@@ -1,7 +1,6 @@
 import React from "react";
-import { Signup } from "../pages/signup";
-import {Error404, Signin } from "../pages";
-import { ProductPage } from "../pages";
+import { Signup, Error404, Signin, ProductPage, Products } from "../pages";
+
 export const routes = {
   LAUNCHSCREEN: {
     path: "/",
@@ -25,6 +24,11 @@ export const routes = {
   ERROR404: {
     path: "/notfound",
     element: <Error404 />,
-    key: 3
+    key: 4
+  },
+  PRODUCTS: {
+    path: "/all-products",
+    element: <Products />,
+    key: 5
   }
 };
