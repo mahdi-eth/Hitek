@@ -4,8 +4,9 @@ import SignUpButton from "../SingUpButton";
 
 export function Header() {
   return (
-    <div className="flex justify-around items-center gap-10 my-4">
-      <div>
+    <>
+    <div className="flex justify-center gap-10 my-4 mx-auto">
+      <div className="mr-48">
         <img src={logo} alt="" />
       </div>
       <ul className="flex justify-around items-center gap-14">
@@ -288,5 +289,8 @@ export function Header() {
         <SignUpButton />
       </ul>
     </div>
+    <hr />
+    </>
+
   );
 }

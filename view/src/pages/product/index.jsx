@@ -3,7 +3,7 @@ import { Header } from '../../components'
 
 export function ProductPage() {
   return (
-    <div>
+    <div className='container mx-auto '>
      <Header/>
     </div>
   )
