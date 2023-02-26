@@ -1,7 +1,7 @@
 import React from "react";
-import { ProductPage } from "../pages";
 import { Signup } from "../pages/signup";
-
+import {Error404, Signin } from "../pages";
+import { ProductPage } from "../pages";
 export const routes = {
   LAUNCHSCREEN: {
     path: "/",
@@ -11,6 +11,20 @@ export const routes = {
   PRODUCTPAGE:{
     path:'/product',
     element:<ProductPage/>
-
+  },
+  SIGNUP: {
+    path: "/signup",
+    element: <Signup />,
+    key: 2
+  },
+  SIGNIN: {
+    path: "/signin",
+    element: <Signin />,
+    key: 3
+  },
+  ERROR404: {
+    path: "/notfound",
+    element: <Error404 />,
+    key: 3
   }
 };

@@ -18,7 +18,7 @@ To run this project on your local machine, follow these steps:
 4. Go to the `server` directory and run `npm i` again to install the server dependencies
 5. In the `client` directory, run `npm run dev` to start the frontend
 6. In the `server` directory, run `npm start` to start the backend
-7. Visit `http://127.0.0.1:5173/` to access the app
+7. Visit http://127.0.0.1:5173/ to access the app
 
 ## Development Status
 This project is still in development mode and improvements are being made regularly.
