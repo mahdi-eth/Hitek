@@ -100,7 +100,7 @@ export function Signin() {
           <button
             type="submit"
             className="bg-primary mb-6 text-white transition duration-150 hover:bg-primary_hover font-semibold py-3 w-full rounded-lg shadow flex items-center justify-center">
-            Sign up
+            Sign in
           </button>
           <p className="text-sm">
             Don’t have an account?{" "}
