@@ -11,10 +11,7 @@ import miniIcom from "../../assets/images/icons/seller.png";
 export function ProductPage() {
   return (
     <div
-      className="py-10"
-      style={{
-        background: "#F7F7F7"
-      }}>
+      className="py-10">
       <div className="container mx-auto lg:minmin-w-fit md:px-20 sm:px-16">
         <Header />
         <p className="mt-5">
