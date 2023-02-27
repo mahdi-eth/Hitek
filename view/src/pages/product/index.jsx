@@ -5,17 +5,29 @@ import { CiHeart } from "react-icons/ci";
 import { MdOutlineStackedLineChart } from "react-icons/md";
 import { FaThumbsUp } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
+import { CiPercent } from "react-icons/ci";
+import { GrHome } from "react-icons/gr";
 import { Header } from "../../layout";
+import { FiTruck } from "react-icons/fi";
+import { AiOutlineArrowRight } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { IoIosPricetags } from "react-icons/io";
 import miniIcom from "../../assets/images/icons/seller.png";
+import { AddToCartButton } from "../../components";
+import houer from "../../assets/images/deliverySection/24Houer.png";
+import PayInLocation from "../../assets/images/deliverySection/PayInLocation.png";
+import ReturnWarranty from "../../assets/images/deliverySection/ReturnWarranty.png";
+import WarrantyOfOriginality from "../../assets/images/deliverySection/WarrantyOfOriginality.png";
+import FastDelivery from "../../assets/images/deliverySection/Fastdelivery.png";
+
 export function ProductPage() {
   return (
     <div
-      className="py-10"
+      className=" container mx-auto"
       style={{
         background: "#F7F7F7"
       }}>
-      <div className="container mx-auto lg:minmin-w-fit md:px-20 sm:px-16">
+      <div className="lg:minmin-w-fit md:px-20 sm:px-16 py-10">
         <Header />
         <p className="mt-5">
           <Link to="/">Home</Link> / <Link>iPhone</Link> /{" "}
@@ -25,7 +37,7 @@ export function ProductPage() {
           Apple mobile phone model iPhone 12 Pro Max A2412 dual SIM card
           capacity 256 GB
         </div>
-        <div className=" flex gap-4 pt-10  ">
+        <div className=" flex gap-4 pt-10 pl-10 flex-wrap " id="product-section">
           <div className="grid-cols-8">
             <BsFillShareFill size={"40px"} />
             <CiHeart size={"40px"} />
@@ -71,31 +83,85 @@ export function ProductPage() {
             </div>
           </div>
           <div
-            className= "p-2 shadow"
+            className="p-2 shadow-2xl"
             style={{
               height: "460px",
               width: "388px"
             }}>
-            <div className="flex justify-between">
-              <div> the seller</div>
-              <div> other seller</div>
+            <div className="flex justify-between p-8">
+              <div className="font-bold"> the seller</div>
+              <div className="font-bold text-primary"> other seller</div>
             </div>
-            <div className="flex flex-col">
-             
-                <div className="flex flex-wrap p-3">
-                  <img src={miniIcom} alt="" />
-                 <div className="font-bold pl-3">
-                   hitek
-                  </div>
-                  <div className="pl-10 text-xs">
-                    Buyer  satisfaction | preformance Excellent 99%
-                  </div>
+            <div className="flex flex-col ">
+              <div className="flex flex-wrap p-3">
+                <img src={miniIcom} alt="" />
+                <div className="font-bold pl-3">hitek</div>
+                <div className="pl-10 gap-2 text-xs flex">
+                  Buyer <span className="text-primary">satisfaction</span> |
+                  preformance Excellent{" "}
+                  <span className="text-primary">99%</span>{" "}
+                  <AiOutlineArrowRight size={20} opacity="40%" />
+                </div>
               </div>
-              <div></div>
-              <div></div>
-              <div></div>
+              <hr />
+              <hr />
+
+              <div className="flex items-center p-3 gap-2">
+                <CiPercent size={20} />
+                18 month warranty of Hitek
+              </div>
+              <hr />
+              <hr />
+              <div>
+                <div className="flex gap-3 p-3 items-center">
+                  <GrHome size={20} />
+                  Available in Hitek warehouse
+                </div>
+
+                <div className="flex pl-14 gap-2 items-center">
+                  <FiTruck color="blue" />
+                  <span>Sned Hitek</span>
+                  <span className="pl-40">
+                    <AiOutlineArrowRight size={20} opacity="40%" />
+                  </span>
+                </div>
+                <hr />
+                <hr />
+              </div>
+              <div className="flex gap-4 p-3 pt-5">
+                <span>
+                  <IoIosPricetags size={20} color="#FAAD13" />
+                </span>
+                <span className="font-bold">Price |</span>
+                <span className="font-bold">1,300 $</span>
+              </div>
+              <AddToCartButton />
             </div>
           </div>
+        </div>
+      </div>
+      <hr className="mr-14 ml-14"/>
+      <hr className="mr-14 ml-14"/>
+      <div className=" flex  justify-center gap-14 p-10 flex-wrap" id="deliverySection">
+        <div>
+          <span>Fast delivery</span>
+          <img src={FastDelivery} alt="" />
+        </div>
+        <div>
+          <span> 24 hour support</span>
+          <img src={houer} alt="" />
+        </div>
+        <div>
+          <span>Pay in location</span>
+          <img src={PayInLocation} alt="" />
+        </div>
+        <div>
+          <span>Return Warranty</span>
+          <img src={ReturnWarranty} alt="" />
+        </div>
+        <div>
+          <span>Warranty of originality</span>
+          <img src={WarrantyOfOriginality} alt="" />
         </div>
       </div>
     </div>
