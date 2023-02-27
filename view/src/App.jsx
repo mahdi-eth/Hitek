@@ -8,7 +8,7 @@ function App() {
       {Object.keys(routes).map((route) => {
         return (
           <Route
-            key={routes[route].key}
+            key={routes[route].path}
             element={routes[route].element}
             path={routes[route].path}
           />
