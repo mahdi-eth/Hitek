@@ -9,8 +9,8 @@ import support from "../../assets/icons/contactusicons/support.svg";
 
 export const ContactUs = () => {
   return (
-    <div className="w-full relative">
-      <img className="absolute top-0 w-full" src={bg} alt="background" />
+    <div className="min-w-full relative">
+      <img className="absolute top-0 w-full left-auto" src={bg} alt="background" />
       <div className="z-10 w-full absolute top-0 flex flex-col items-center">
         <Link className="self-start md:mt-8 md:ml-40" to="/">
           <img src={logo} alt="logo" />
@@ -24,7 +24,7 @@ export const ContactUs = () => {
           </p>
           <ContactForm />
         </div>
-        <div className="mt-40 flex gap-16">
+        <div className="mt-40 flex flex-col gap-16 xl:flex-row">
           <ContactCard
             icon={email}
             title="Email us"

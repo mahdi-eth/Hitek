@@ -1,11 +1,21 @@
 import { checkPropTypes } from "prop-types";
 import React from "react";
 
+{
+  /* Create a react form using tailwind css which has 5 rows. row 1 has two
+        columns, one for name and one for email. the second row also has two
+        columns, one for company name and one for country which user can
+        select a country within all country names. row 3 has one column, which is a
+        text area for writing message and user cant change its width and
+        height. row 4 has only a text saying something. And row 5 has a button
+        for submitting. Also all inputs have a label on top of them. And use yup and react hook form for controlling the form. */
+}
+
 export const ContactCard = ({ icon, title, text, link, linkText }) => {
   const contactUsClasses = "flex flex-col items-center ";
   return (
     <div className="container min-w-max text-center">
-      <div className="max-w-sm p-6 flex flex-col gap-3 items-center bg-white dark:bg-gray-800 dark:border-gray-700">
+      <div className="max-w-sm flex flex-col gap-3 items-center bg-white dark:bg-gray-800 dark:border-gray-700">
         <a
           className={
             link != "#" ? contactUsClasses : contactUsClasses + "cursor-default"

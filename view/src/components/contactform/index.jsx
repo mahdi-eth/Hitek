@@ -1,174 +1,223 @@
-import React from "react";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as Yup from "yup";
+
+const schema = Yup.object().shape({
+  name: Yup.string().required("Name is required"),
+  email: Yup.string().email("Invalid email").required("Email is required"),
+  company: Yup.string().required("Company name is required"),
+  country: Yup.string().required("Country is required"),
+  message: Yup.string().required("message is required")
+});
+
+const countries = [
+  { code: "US", name: "United States" },
+  { code: "CA", name: "Canada" },
+  { code: "GB", name: "United Kingdom" },
+  { code: "AF", name: "Afghanistan" },
+  { code: "AX", name: "Åland Islands" },
+  { code: "AL", name: "Albania" },
+  { code: "DZ", name: "Algeria" },
+  { code: "AS", name: "American Samoa" },
+  { code: "AD", name: "Andorra" },
+  { code: "AO", name: "Angola" },
+  { code: "AI", name: "Anguilla" },
+  { code: "AQ", name: "Antarctica" },
+  { code: "AG", name: "Antigua and Barbuda" },
+  { code: "AR", name: "Argentina" },
+  { code: "AM", name: "Armenia" },
+  { code: "AW", name: "Aruba" },
+  { code: "AU", name: "Australia" },
+  { code: "AT", name: "Austria" },
+  { code: "AZ", name: "Azerbaijan" },
+  { code: "BS", name: "Bahamas" },
+  { code: "BH", name: "Bahrain" },
+  { code: "BD", name: "Bangladesh" },
+  { code: "BB", name: "Barbados" },
+  { code: "BY", name: "Belarus" },
+  { code: "BE", name: "Belgium" },
+  { code: "BZ", name: "Belize" },
+  { code: "BJ", name: "Benin" },
+  { code: "BM", name: "Bermuda" },
+  { code: "BT", name: "Bhutan" },
+  { code: "BO", name: "Bolivia (Plurinational State of)" },
+  { code: "BQ", name: "Bonaire, Sint Eustatius and Saba" },
+  { code: "BA", name: "Bosnia and Herzegovina" },
+  { code: "BW", name: "Botswana" },
+  { code: "BV", name: "Bouvet Island" },
+  { code: "BR", name: "Brazil" },
+  { code: "IO", name: "British Indian Ocean Territory" },
+  { code: "BN", name: "Brunei Darussalam" },
+  { code: "BG", name: "Bulgaria" },
+  { code: "BF", name: "Burkina Faso" },
+  { code: "BI", name: "Burundi" },
+  { code: "CV", name: "Cabo Verde" },
+  { code: "KH", name: "Cambodia" },
+  { code: "CM", name: "Cameroon" },
+  { code: "CA", name: "Canada" },
+  { code: "KY", name: "Cayman Islands" },
+  { code: "CF", name: "Central African Republic" },
+  { code: "TD", name: "Chad" },
+  { code: "CL", name: "Chile" },
+  { code: "CN", name: "China" },
+  { code: "CX", name: "Christmas Island" },
+  { code: "CC", name: "Cocos (Keeling) Islands" }
+];
 
 export const ContactForm = () => {
-  {
-    /* Create a react form using tailwind css which has 5 rows. row 1 has two
-          columns, one for name and one for email. the second row also has two
-          columns, one for company name and one for country which user can
-          select a country with all countries. row 3 has one column, which is a
-          text area for writing message and user cant change its width and
-          height. row 4 has only a text saying something. And row 5 has a button
-          for submitting. Also all inputs have a label on top of them. */
-  }
-  
+  const [selectedCountry, setSelectedCountry] = useState("");
+
+  const handleChange = (event) => {
+    setSelectedCountry(event.target.value);
+  };
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm({
+    resolver: yupResolver(schema)
+  });
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
   return (
-    <form className="bg-white z-10">
-      <div className="grid gap-6 mb-6 md:grid-cols-2">
-        <div>
-          <label
-            htmlFor="first_name"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-            First name
+    <form
+      className="mt-8 max-w-4xl bg-white p-16 rounded-lg shadow-sm"
+      onSubmit={handleSubmit(onSubmit)}>
+      {/* Row 1 */}
+      <div className="mb-4 w-full flex gap-7 justify-between">
+        <div className="flex flex-col justify-start w-1/2">
+          <label htmlFor="name" className="self-start mb-2 opacity-75">
+            Your name*
           </label>
           <input
+            placeholder="Julia William"
             type="text"
-            id="first_name"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="John"
-            required
+            id="name"
+            className="w-full px-3 py-2 border border-gray-200 rounded-lg focus-visible:outline-primary"
+            {...register("name")}
           />
+          {errors.name && (
+            <p className="text-red-500 text-sm mt-1 text-left">
+              {errors.name.message}
+            </p>
+          )}
         </div>
-        <div>
-          <label
-            htmlFor="last_name"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-            Last name
+        <div className="flex flex-col justify-start w-1/2">
+          <label htmlFor="email" className="self-start mb-2 opacity-75">
+            Contact email *
           </label>
           <input
-            type="text"
-            id="last_name"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Doe"
-            required
+            type="email"
+            placeholder="you@example.com"
+            id="email"
+            className="w-full px-3 py-2 border border-gray-200 rounded-lg focus-visible:outline-primary"
+            {...register("email")}
           />
+          {errors.email && (
+            <p className="text-red-500 text-sm mt-1 text-left">
+              {errors.email.message}
+            </p>
+          )}
         </div>
-        <div>
-          <label
-            htmlFor="company"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-            Company
+      </div>
+
+      {/* Row 2 */}
+      <div className="mb-4 w-full flex gap-7 justify-between">
+        <div className="flex flex-col justify-start w-1/2">
+          <label htmlFor="company" className="self-start mb-2 opacity-75">
+            Company name*
           </label>
           <input
             type="text"
             id="company"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Flowbite"
-            required
+            placeholder="Company name"
+            className="w-full px-3 py-2 border border-gray-200 rounded-lg focus-visible:outline-primary"
+            {...register("company")}
           />
+          {errors.company && (
+            <p className="text-red-500 text-sm mt-1 text-left">
+              Please select a country.
+            </p>
+          )}
         </div>
-        <div>
-          <label
-            htmlFor="phone"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-            Phone number
+        <div className="flex flex-col justify-start w-1/2">
+          <label htmlFor="country" className="self-start mb-2 opacity-75">
+            Country*
           </label>
-          <input
-            type="tel"
-            id="phone"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="123-45-678"
-            pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
-            required
-          />
-        </div>
-        <div>
-          <label
-            htmlFor="website"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-            Website URL
-          </label>
-          <input
-            type="url"
-            id="website"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="flowbite.com"
-            required
-          />
-        </div>
-        <div>
-          <label
-            htmlFor="visitors"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-            Unique visitors (per month)
-          </label>
-          <input
-            type="number"
-            id="visitors"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder=""
-            required
-          />
+          <div className="relative">
+            <select
+              value={selectedCountry}
+              {...register("country", { required: true })}
+              onChange={handleChange}
+              id="country"
+              autoComplete="none"
+              className="block w-full py-2.5 pl-3 pr-10 leading-5 text-gray-900 bg-white border border-gray-200 rounded-lg appearance-none focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary">
+              <option value="">Select a country</option>
+              {countries.map((country) => (
+                <option key={country.code} value={country.code}>
+                  {country.name}
+                </option>
+              ))}
+            </select>
+            <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+              <svg
+                className="w-5 h-5 text-gray-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
-      <div className="mb-6">
-        <label
-          htmlFor="email"
-          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-          Email address
+
+      {/* Row 3 */}
+      <div className="mb-4 text-left">
+        <label htmlFor="message" className="w-full mb-2 block opacity-75">
+          Your message*
         </label>
-        <input
-          type="email"
-          id="email"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="john.doe@company.com"
-          required
-        />
+        <textarea
+          placeholder="Type your message…."
+          id="message"
+          className="w-full px-3 py-2 border border-gray-200 rounded-lg focus-visible:outline-primary min-h-140 max-h-140"
+          {...register("message")}
+          rows={5}></textarea>
+        {errors.message && (
+          <p className="text-red-500 text-sm mt-1 text-left">
+            {errors.message.message}
+          </p>
+        )}
       </div>
-      <div className="mb-6">
-        <label
-          htmlFor="password"
-          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-          Password
-        </label>
-        <input
-          type="password"
-          id="password"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="•••••••••"
-          required
-        />
+
+      {/* Row 4 */}
+      <div className="mb-4">
+        <p className="text-left opacity-75">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua
+        </p>
       </div>
-      <div className="mb-6">
-        <label
-          htmlFor="confirm_password"
-          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-          Confirm password
-        </label>
-        <input
-          type="password"
-          id="confirm_password"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="•••••••••"
-          required
-        />
+
+      {/* Row 5 */}
+      <div className="mt-4 text-left">
+        <button
+          type="submit"
+          className="bg-primary self-start text-white px-10 py-3 border-gray-200 rounded-lg focus-visible:outline-primary hover:bg-primary_hover">
+          Send text
+        </button>
       </div>
-      <div className="flex items-start mb-6">
-        <div className="flex items-center h-5">
-          <input
-            id="remember"
-            type="checkbox"
-            value=""
-            className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
-            required
-          />
-        </div>
-        <label
-          htmlFor="remember"
-          className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-          I agree with the{" "}
-          <a
-            href="#"
-            className="text-blue-600 hover:underline dark:text-blue-500">
-            terms and conditions
-          </a>
-          .
-        </label>
-      </div>
-      <button
-        type="submit"
-        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-        Submit
-      </button>
     </form>
   );
 };
