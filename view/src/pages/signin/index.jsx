@@ -8,10 +8,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 const schema = yup.object().shape({
-  email: yup
-    .string()
-    .required("Email is required")
-    .email("Invalid email format"),
+  email: yup.string().required("Email is required").email("Invalid email"),
   password: yup
     .string()
     .required("Password is required")
@@ -67,7 +64,7 @@ export function Signin() {
         </h2>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="sm:min-w-360 text-left pb-6">
+          className="sm:min-w-360 text-left pb-6 mb-6">
           <button
             type="button"
             className="bg-primary mb-6 relative transition duration-150 hover:bg-primary_hover font-semibold py-3 w-full rounded-lg shadow flex items-center justify-center">
@@ -90,6 +87,7 @@ export function Signin() {
               Email address*
             </label>
             <input
+              autoComplete="none"
               type="text"
               {...register("email")}
               id="email"
@@ -97,7 +95,7 @@ export function Signin() {
               placeholder="Enter email address"
             />
             {errors.email && (
-              <p className="text-red-500 text-sm mt-1 text-left">
+              <p className="text-red-500 text-xs mt-1 text-left">
                 {" "}
                 {errors.email.message}{" "}
               </p>
@@ -110,6 +108,7 @@ export function Signin() {
               Password*
             </label>
             <input
+              autoComplete="none"
               type="password"
               id="password"
               {...register("password")}
@@ -117,7 +116,7 @@ export function Signin() {
               className="shadow-sm px-5 bg-white py-3 border border-gray-300 text-_Gray text-sm rounded-lg focus-visible:outline-primary focus-visible:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus-visible:outline-primary dark:focus-visible:border-blue-500 dark:shadow-sm-light"
             />
             {errors.password && (
-              <p className="text-red-500 text-sm mt-1 text-left">
+              <p className="text-red-500 text-xs mt-1 text-left">
                 {" "}
                 {errors.password.message}{" "}
               </p>
@@ -126,6 +125,7 @@ export function Signin() {
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center h-5">
               <input
+                autoComplete="none"
                 id="terms"
                 type="checkbox"
                 className="w-4 h-4 border px-5 cursor-pointer border-gray-300 rounded-lg bg-white py-3 focus-visible:ring-3 focus-visible:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus-visible:ring-blue-600 dark:ring-offset-gray-800 dark:focus-visible:ring-offset-gray-800"

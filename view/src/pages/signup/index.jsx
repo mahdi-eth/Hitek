@@ -9,14 +9,14 @@ import { useForm } from "react-hook-form";
 
 const schema = yup.object().shape({
   name: yup.string().required("Name is required"),
-  email: yup
-    .string()
-    .required("Email is required")
-    .email("Invalid email format"),
+  email: yup.string().required("Email is required").email("Invalid email"),
   password: yup
     .string()
     .required("Password is required")
-    .min(6, "Password must be at least 6 characters")
+    .min(6, "Password must be at least 6 characters"),
+  termsAndConditions: yup
+    .boolean()
+    .oneOf([true], "You must accept the terms and conditions")
 });
 
 export function Signup() {
@@ -68,7 +68,7 @@ export function Signup() {
         </h2>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="sm:min-w-360 text-left">
+          className="sm:min-w-360 text-left mb-6">
           <button
             type="button"
             className="bg-primary mb-6 relative transition duration-150 hover:bg-primary_hover font-semibold py-3 w-full rounded-lg shadow flex items-center justify-center">
@@ -91,6 +91,7 @@ export function Signup() {
               Your name*
             </label>
             <input
+              autoComplete="none"
               type="text"
               {...register("name")}
               id="your-name"
@@ -98,7 +99,7 @@ export function Signup() {
               className="shadow-sm px-5 bg-white py-3 border border-gray-300 text-_Gray text-sm rounded-lg focus-visible:outline-primary focus-visible:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus-visible:outline-primary dark:focus-visible:border-blue-500 dark:shadow-sm-light"
             />
             {errors.name && (
-              <p className="text-red-500 text-sm mt-1 text-left">
+              <p className="text-red-500 text-xs mt-1 text-left">
                 {" "}
                 {errors.name.message}{" "}
               </p>
@@ -111,6 +112,7 @@ export function Signup() {
               Email address*
             </label>
             <input
+              autoComplete="none"
               type="email"
               {...register("email")}
               id="email"
@@ -118,7 +120,7 @@ export function Signup() {
               placeholder="Enter email address"
             />
             {errors.email && (
-              <p className="text-red-500 text-sm mt-1 text-left">
+              <p className="text-red-500 text-xs mt-1 text-left">
                 {" "}
                 {errors.email.message}{" "}
               </p>
@@ -131,6 +133,7 @@ export function Signup() {
               Password*
             </label>
             <input
+              autoComplete="none"
               type="password"
               {...register("password")}
               id="password"
@@ -138,7 +141,7 @@ export function Signup() {
               className="shadow-sm px-5 bg-white py-3 border border-gray-300 text-_Gray text-sm rounded-lg focus-visible:outline-primary focus-visible:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus-visible:outline-primary dark:focus-visible:border-blue-500 dark:shadow-sm-light"
             />
             {errors.password && (
-              <p className="text-red-500 text-sm mt-1 text-left">
+              <p className="text-red-500 text-xs mt-1 text-left">
                 {" "}
                 {errors.password.message}{" "}
               </p>
@@ -147,16 +150,26 @@ export function Signup() {
           <div className="flex items-start mb-6">
             <div className="flex items-center h-5">
               <input
+                autoComplete="none"
                 id="terms"
                 type="checkbox"
+                {...register("termsAndConditions")}
                 className="w-4 h-4 border px-5 cursor-pointer border-gray-300 rounded-lg bg-white py-3 focus-visible:ring-3 focus-visible:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus-visible:ring-blue-600 dark:ring-offset-gray-800 dark:focus-visible:ring-offset-gray-800"
               />
             </div>
-            <label
-              htmlFor="terms"
-              className="ml-2 cursor-pointer text-sm font-medium text-_Gray dark:text-gray-300">
-              Agree to terms & conditions
-            </label>
+            <div>
+              <label
+                htmlFor="terms"
+                className="ml-2 cursor-pointer text-sm font-medium text-_Gray dark:text-gray-300">
+                Agree to terms & conditions
+              </label>
+              {errors.termsAndConditions && (
+                <p className="text-red-500 text-xs mt-1 text-left">
+                  {" "}
+                  {errors.termsAndConditions.message}{" "}
+                </p>
+              )}
+            </div>
           </div>
           <button
             type="submit"
