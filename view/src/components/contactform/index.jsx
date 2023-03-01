@@ -42,6 +42,7 @@ export const ContactForm = () => {
     resolver: yupResolver(schema)
   });
 
+  // Todo
   const onSubmit = (data) => {
     console.log(data);
   };
@@ -51,8 +52,8 @@ export const ContactForm = () => {
       className="mt-8 max-w-4xl bg-white p-16 rounded-lg shadow-xl"
       onSubmit={handleSubmit(onSubmit)}>
       {/* Row 1 */}
-      <div className="mb-4 w-full flex gap-7 justify-between">
-        <div className="flex flex-col justify-start w-1/2">
+      <div className="mb-4 w-full flex flex-col sm:flex-row gap-7 justify-between">
+        <div className="flex flex-col justify-start sm:w-1/2">
           <label htmlFor="name" className="self-start mb-2 opacity-75">
             Your name*
           </label>
@@ -69,7 +70,7 @@ export const ContactForm = () => {
             </p>
           )}
         </div>
-        <div className="flex flex-col justify-start w-1/2">
+        <div className="flex flex-col justify-start sm:w-1/2">
           <label htmlFor="email" className="self-start mb-2 opacity-75">
             Contact email *
           </label>
@@ -89,8 +90,8 @@ export const ContactForm = () => {
       </div>
 
       {/* Row 2 */}
-      <div className="mb-4 w-full flex gap-7 justify-between">
-        <div className="flex flex-col justify-start w-1/2">
+      <div className="mb-4 w-full flex flex-col sm:flex-row gap-7 justify-between">
+        <div className="flex flex-col justify-start sm:w-1/2">
           <label htmlFor="company" className="self-start mb-2 opacity-75">
             Company name*
           </label>
@@ -107,7 +108,7 @@ export const ContactForm = () => {
             </p>
           )}
         </div>
-        <div className="flex flex-col justify-start w-1/2">
+        <div className="flex flex-col justify-start sm:w-1/2">
           <label htmlFor="country" className="self-start mb-2 opacity-75">
             Country*
           </label>

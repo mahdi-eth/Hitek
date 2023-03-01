@@ -9,15 +9,15 @@ import support from "../../assets/icons/contactusicons/support.svg";
 
 export const ContactUs = () => {
   return (
-    <div className="min-w-full relative">
+    <div className="min-w-full relative bg-blue-500">
       <img className="absolute top-0 w-full left-auto" src={bg} alt="background" />
       <div className="z-10 w-full absolute top-0 flex flex-col items-center">
-        <Link className="self-start md:mt-8 md:ml-40" to="/">
+        <Link className="self-start mt-8 ml-20 md:ml-40" to="/">
           <img src={logo} alt="logo" />
         </Link>
-        <div className="contact-container text-center flex flex-col gap-6 mt-32">
-          <h1 className="text-white text-6xl">Contact with our team</h1>
-          <p className="text-white text-xl max-w-3xl">
+        <div className="contact-container flex flex-col items-center gap-6 mt-16 md:mt-24 lg:mt-32 mx-4">
+          <h1 className="text-white text-center text-4xl sm:text-5xl md:text-6xl">Contact with our team</h1>
+          <p className="text-white text-center hidden sm:block text-lg md:text-xl max-w-3xl">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua
             consectetur adipiscing elit
