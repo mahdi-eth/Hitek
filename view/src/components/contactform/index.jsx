@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
@@ -8,65 +8,27 @@ const schema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Email is required"),
   company: Yup.string().required("Company name is required"),
   country: Yup.string().required("Country is required"),
-  message: Yup.string().required("message is required")
+  message: Yup.string().required("Message is required")
 });
-
-const countries = [
-  { code: "US", name: "United States" },
-  { code: "CA", name: "Canada" },
-  { code: "GB", name: "United Kingdom" },
-  { code: "AF", name: "Afghanistan" },
-  { code: "AX", name: "Åland Islands" },
-  { code: "AL", name: "Albania" },
-  { code: "DZ", name: "Algeria" },
-  { code: "AS", name: "American Samoa" },
-  { code: "AD", name: "Andorra" },
-  { code: "AO", name: "Angola" },
-  { code: "AI", name: "Anguilla" },
-  { code: "AQ", name: "Antarctica" },
-  { code: "AG", name: "Antigua and Barbuda" },
-  { code: "AR", name: "Argentina" },
-  { code: "AM", name: "Armenia" },
-  { code: "AW", name: "Aruba" },
-  { code: "AU", name: "Australia" },
-  { code: "AT", name: "Austria" },
-  { code: "AZ", name: "Azerbaijan" },
-  { code: "BS", name: "Bahamas" },
-  { code: "BH", name: "Bahrain" },
-  { code: "BD", name: "Bangladesh" },
-  { code: "BB", name: "Barbados" },
-  { code: "BY", name: "Belarus" },
-  { code: "BE", name: "Belgium" },
-  { code: "BZ", name: "Belize" },
-  { code: "BJ", name: "Benin" },
-  { code: "BM", name: "Bermuda" },
-  { code: "BT", name: "Bhutan" },
-  { code: "BO", name: "Bolivia (Plurinational State of)" },
-  { code: "BQ", name: "Bonaire, Sint Eustatius and Saba" },
-  { code: "BA", name: "Bosnia and Herzegovina" },
-  { code: "BW", name: "Botswana" },
-  { code: "BV", name: "Bouvet Island" },
-  { code: "BR", name: "Brazil" },
-  { code: "IO", name: "British Indian Ocean Territory" },
-  { code: "BN", name: "Brunei Darussalam" },
-  { code: "BG", name: "Bulgaria" },
-  { code: "BF", name: "Burkina Faso" },
-  { code: "BI", name: "Burundi" },
-  { code: "CV", name: "Cabo Verde" },
-  { code: "KH", name: "Cambodia" },
-  { code: "CM", name: "Cameroon" },
-  { code: "CA", name: "Canada" },
-  { code: "KY", name: "Cayman Islands" },
-  { code: "CF", name: "Central African Republic" },
-  { code: "TD", name: "Chad" },
-  { code: "CL", name: "Chile" },
-  { code: "CN", name: "China" },
-  { code: "CX", name: "Christmas Island" },
-  { code: "CC", name: "Cocos (Keeling) Islands" }
-];
 
 export const ContactForm = () => {
   const [selectedCountry, setSelectedCountry] = useState("");
+
+  const [countries, setCountries] = useState([]);
+
+  useEffect(() => {
+    fetch("https://restcountries.com/v3.1/all")
+      .then((response) => response.json())
+      .then((data) => {
+        const formattedData = data.map((country) => ({
+          code: country.cca2,
+          name: country.name.common
+        }));
+        formattedData.sort((a, b) => a.name.localeCompare(b.name));
+        setCountries(formattedData);
+      })
+      .catch((error) => console.error(error));
+  }, []);
 
   const handleChange = (event) => {
     setSelectedCountry(event.target.value);
@@ -86,7 +48,7 @@ export const ContactForm = () => {
 
   return (
     <form
-      className="mt-8 max-w-4xl bg-white p-16 rounded-lg shadow-sm"
+      className="mt-8 max-w-4xl bg-white p-16 rounded-lg shadow-xl"
       onSubmit={handleSubmit(onSubmit)}>
       {/* Row 1 */}
       <div className="mb-4 w-full flex gap-7 justify-between">
@@ -112,7 +74,7 @@ export const ContactForm = () => {
             Contact email *
           </label>
           <input
-            type="email"
+            type="text"
             placeholder="you@example.com"
             id="email"
             className="w-full px-3 py-2 border border-gray-200 rounded-lg focus-visible:outline-primary"

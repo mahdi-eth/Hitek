@@ -24,7 +24,7 @@ export const ContactUs = () => {
           </p>
           <ContactForm />
         </div>
-        <div className="mt-40 flex flex-col gap-16 xl:flex-row">
+        <div className="mt-40 flex flex-col gap-16 xl:flex-row mb-16">
           <ContactCard
             icon={email}
             title="Email us"
