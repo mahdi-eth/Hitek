@@ -3,6 +3,20 @@ import logo from "../../assets/images/logo/logo.svg";
 import img from "../../assets/images/singinpage/Image.png";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+
+const schema = yup.object().shape({
+  email: yup
+    .string()
+    .required("Email is required")
+    .email("Invalid email format"),
+  password: yup
+    .string()
+    .required("Password is required")
+    .min(6, "Password must be at least 6 characters")
+});
 
 export function Signin() {
   const [width, setWidth] = useState(window.innerWidth);
@@ -21,11 +35,24 @@ export function Signin() {
     else if (width < 860 && width > 768) return { width: "400px" };
     return null;
   };
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm({
+    resolver: yupResolver(schema)
+  });
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
   return (
     <div className="flex items-center justify-center mt-2 flex-col md:flex-row">
       <div className="left-side flex flex-col justify-center items-start">
         <Link className="md:mt-6 md:ml-40" to="/">
-        <img src={logo} alt="logo" />
+          <img src={logo} alt="logo" />
         </Link>
         <img
           className="hidden md:block"
@@ -38,7 +65,9 @@ export function Signin() {
         <h2 className="text-3xl font-semibold mb-6 text-_Gray">
           Welcome back.
         </h2>
-        <form className="sm:min-w-360 text-left pb-6">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="sm:min-w-360 text-left pb-6">
           <button
             type="button"
             className="bg-primary mb-6 relative transition duration-150 hover:bg-primary_hover font-semibold py-3 w-full rounded-lg shadow flex items-center justify-center">
@@ -61,11 +90,18 @@ export function Signin() {
               Email address*
             </label>
             <input
-              type="email"
+              type="text"
+              {...register("email")}
               id="email"
               className="shadow-sm px-5 bg-white py-3 border border-gray-300 text-_Gray text-sm rounded-lg focus-visible:outline-primary focus-visible:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus-visible:outline-primary dark:focus-visible:border-blue-500 dark:shadow-sm-light"
               placeholder="Enter email address"
             />
+            {errors.email && (
+              <p className="text-red-500 text-sm mt-1 text-left">
+                {" "}
+                {errors.email.message}{" "}
+              </p>
+            )}
           </div>
           <div className="mb-6">
             <label
@@ -76,9 +112,16 @@ export function Signin() {
             <input
               type="password"
               id="password"
+              {...register("password")}
               placeholder="Enter password"
               className="shadow-sm px-5 bg-white py-3 border border-gray-300 text-_Gray text-sm rounded-lg focus-visible:outline-primary focus-visible:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus-visible:outline-primary dark:focus-visible:border-blue-500 dark:shadow-sm-light"
             />
+            {errors.password && (
+              <p className="text-red-500 text-sm mt-1 text-left">
+                {" "}
+                {errors.password.message}{" "}
+              </p>
+            )}
           </div>
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center h-5">
