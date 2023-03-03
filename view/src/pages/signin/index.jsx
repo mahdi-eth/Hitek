@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import logo from "../../assets/images/logo/logo.svg";
-import img from "../../assets/images/singinpage/Image.png";
+import logo from "@/assets/images/logo/logo.svg";
+import img from "@/assets/images/singinpage/Image.png";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";

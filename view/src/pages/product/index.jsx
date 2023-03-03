@@ -1,13 +1,13 @@
 import React from "react";
-import iphone13 from "./../../assets/images/productImg/iphone13promax.jpg";
+import iphone13 from "@/assets/images/productImg/iphone13promax.jpg";
 import { BsFillShareFill } from "react-icons/bs";
 import { CiHeart } from "react-icons/ci";
 import { MdOutlineStackedLineChart } from "react-icons/md";
 import { FaThumbsUp } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
-import { Header } from "../../layout";
+import { Header } from "@/layout";
 import { Link } from "react-router-dom";
-import miniIcom from "../../assets/images/icons/seller.png";
+import miniIcom from "@/assets/images/icons/seller.png";
 export function ProductPage() {
   return (
     <div

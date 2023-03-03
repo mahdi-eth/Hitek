@@ -1,5 +1,5 @@
 import React from "react";
-import { Checkbox } from "../../components";
+import { Checkbox } from "@/components";
 import { AiOutlineSearch } from "react-icons/ai";
 
 export function Filters() {

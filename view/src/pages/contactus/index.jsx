@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ContactCard, ContactForm } from "../../components";
-import logo from "../../assets/images/logo/logo-white.svg";
-import bg from "../../assets/images/bg/background.png";
-import email from "../../assets/icons/contactusicons/email.svg";
-import call from "../../assets/icons/contactusicons/call.svg";
-import support from "../../assets/icons/contactusicons/support.svg";
+import { ContactCard, ContactForm } from "@/components";
+import logo from "@/assets/images/logo/logo-white.svg";
+import bg from "@/assets/images/bg/background.png";
+import email from "@/assets/icons/contactusicons/email.svg";
+import call from "@/assets/icons/contactusicons/call.svg";
+import support from "@/assets/icons/contactusicons/support.svg";
 
 export const ContactUs = () => {
   return (

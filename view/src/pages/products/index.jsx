@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Header } from "../../layout";
-import { ProductCard, FilterButton, Filters } from "../../components";
-import img from "../../assets/images/product/product.png";
+import { Header } from "@/layout";
+import { ProductCard, FilterButton, Filters } from "@/components";
+import img from "@/assets/images/product/product.png";
 
 export function Products() {
   return (

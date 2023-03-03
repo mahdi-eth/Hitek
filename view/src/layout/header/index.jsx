@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../../assets/images/logo/logo.svg";
-import { Dropdown } from "../../components";
+import logo from "@/assets/images/logo/logo.svg";
+import { Dropdown } from "@/components";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,7 +20,7 @@ export function Header() {
   }, [dropdownRef]);
 
   return (
-    <nav className="px-2 bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700 mt-4">
+    <nav className="px-2 bg-white border-gray-200 mt-4">
       <div className="container flex flex-wrap items-center justify-between mx-auto">
         <Link to="/" className="flex items-center">
           <img src={logo} className="h-6 mr-3 sm:h-10" alt="Logo" />

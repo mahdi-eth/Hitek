@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import logo from "../../assets/images/logo/logo.svg";
-import img from "../../assets/images/signuppage/bitmap.png";
+import logo from "@/assets/images/logo/logo.svg";
+import img from "@/assets/images/signuppage/bitmap.png";
 import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import * as yup from "yup";

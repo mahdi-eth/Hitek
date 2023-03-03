@@ -6,7 +6,7 @@ import {
   ProductPage,
   Products,
   ContactUs
-} from "../pages";
+} from "@/pages";
 
 export const routes = {
   LAUNCHSCREEN: {
