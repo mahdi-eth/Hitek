@@ -1,5 +1,5 @@
 import { useState, React } from "react";
-import { Checkbox } from "../../components";
+import { Checkbox } from "@/components";
 import { AiOutlineSearch } from "react-icons/ai";
 
 export const FilterButton = () => {

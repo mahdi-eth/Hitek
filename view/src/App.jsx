@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { routes } from "./routes";
+import { routes } from "@/routes";
 
 function App() {
   return (
@@ -8,7 +8,7 @@ function App() {
       {Object.keys(routes).map((route) => {
         return (
           <Route
-            key={routes[route].key}
+            key={routes[route].path}
             element={routes[route].element}
             path={routes[route].path}
           />

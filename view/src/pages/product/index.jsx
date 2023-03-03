@@ -1,34 +1,30 @@
 import React from "react";
-import iphone13 from "./../../assets/images/productImg/iphone13promax.jpg";
+import iphone13 from "@/assets/images/productImg/iphone13promax.jpg";
 import { BsFillShareFill } from "react-icons/bs";
 import { CiHeart } from "react-icons/ci";
 import { MdOutlineStackedLineChart } from "react-icons/md";
 import { FaThumbsUp } from "react-icons/fa";
-import { FaStar } from "react-icons/fa";
-import { CiPercent } from "react-icons/ci";
-import { GrHome } from "react-icons/gr";
-import { Header } from "../../layout";
-import { FiTruck } from "react-icons/fi";
-import { AiOutlineArrowRight } from "react-icons/ai";
+import { FaStar,FaPercent,FaHome,FaTruck } from "react-icons/fa";
+import {AiOutlineArrowRight} from 'react-icons/ai'
+import {IoIosPricetags} from 'react-icons/io'
+
 import { Link } from "react-router-dom";
-import { IoIosPricetags } from "react-icons/io";
-import miniIcom from "../../assets/images/icons/seller.png";
-import { AddToCartButton } from "../../components";
-import houer from "../../assets/images/deliverySection/24Houer.png";
-import PayInLocation from "../../assets/images/deliverySection/PayInLocation.png";
-import ReturnWarranty from "../../assets/images/deliverySection/ReturnWarranty.png";
-import WarrantyOfOriginality from "../../assets/images/deliverySection/WarrantyOfOriginality.png";
-import FastDelivery from "../../assets/images/deliverySection/Fastdelivery.png";
+import miniIcom from "@/assets/images/icons/seller.png";
+import { AddToCartButton } from "@/components";
+import houer from '@/assets/images/deliverySection/24houer.png'
+import PayInLocation from '@/assets/images/deliverySection/PayInLocation.png'
+import ReturnWarranty from '@/assets/images/deliverySection/ReturnWarranty.png'
+import WarrantyOfOriginality from '@/assets/images/deliverySection/WarrantyOfOriginality.png'
+import Fastdelivery from '@/assets/images/deliverySection/Fastdelivery.png'
+import { Header } from "@/layout";
+
 
 export function ProductPage() {
   return (
     <div
-      className=" container mx-auto"
-      style={{
-        background: "#F7F7F7"
-      }}>
-      <div className="lg:minmin-w-fit md:px-20 sm:px-16 py-10">
-        <Header />
+    className="py-10">
+      <div className="container mx-auto lg:minmin-w-fit md:px-20  sm:px-16 mb-7">
+    <Header />
         <p className="mt-5">
           <Link to="/">Home</Link> / <Link>iPhone</Link> /{" "}
           <Link>iphone 13 promax</Link>{" "}
@@ -107,19 +103,19 @@ export function ProductPage() {
               <hr />
 
               <div className="flex items-center p-3 gap-2">
-                <CiPercent size={20} />
+                <FaPercent size={20} />
                 18 month warranty of Hitek
               </div>
               <hr />
               <hr />
               <div>
                 <div className="flex gap-3 p-3 items-center">
-                  <GrHome size={20} />
+                  <FaHome size={20} />
                   Available in Hitek warehouse
                 </div>
 
                 <div className="flex pl-14 gap-2 items-center">
-                  <FiTruck color="blue" />
+                  <FaTruck color="blue" />
                   <span>Sned Hitek</span>
                   <span className="pl-40">
                     <AiOutlineArrowRight size={20} opacity="40%" />
@@ -140,26 +136,26 @@ export function ProductPage() {
           </div>
         </div>
       </div>
-      <hr className="mr-14 ml-14"/>
-      <hr className="mr-14 ml-14"/>
-      <div className=" flex  justify-center gap-14 p-10 flex-wrap" id="deliverySection">
-        <div>
+      <hr className='mx-60'/>
+      <hr className='mx-60'/>
+      <div className=" flex  justify-center gap-16 py-10 flex-wrap" id="deliverySection">
+        <div className="flex flex-wrap flex-col justify-cen items-center">
           <span>Fast delivery</span>
-          <img src={FastDelivery} alt="" />
+          <img src={Fastdelivery} alt="content" />
         </div>
-        <div>
+        <div className="flex flex-wrap flex-col justify-cen items-center">
           <span> 24 hour support</span>
-          <img src={houer} alt="" />
+          <img src={houer} alt="content" />
         </div>
-        <div>
+        <div className="flex flex-wrap flex-col justify-cen items-center">
           <span>Pay in location</span>
           <img src={PayInLocation} alt="" />
         </div>
-        <div>
+        <div className="flex flex-wrap flex-col justify-cen items-center">
           <span>Return Warranty</span>
           <img src={ReturnWarranty} alt="" />
         </div>
-        <div>
+        <div className="flex flex-wrap flex-col justify-cen items-center">
           <span>Warranty of originality</span>
           <img src={WarrantyOfOriginality} alt="" />
         </div>

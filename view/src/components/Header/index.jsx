@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../assets/images/logo/logo.svg";
+import logo from "@/assets/images/logo/logo.svg";
 import SignUpButton from "../SingUpButton";
 
 export function Header() {

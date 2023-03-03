@@ -1,34 +1,40 @@
 import React from "react";
-import { Signup, Error404, Signin, ProductPage, Products } from "../pages";
+import {
+  Signup,
+  Error404,
+  Signin,
+  ProductPage,
+  Products,
+  ContactUs
+} from "@/pages";
 
 export const routes = {
   LAUNCHSCREEN: {
     path: "/",
-    element: <Signup />,
-    key: 1
+    element: <Signup />
   },
-  PRODUCTPAGE:{
-    path:'/product',
-    element:<ProductPage/>
+  PRODUCTPAGE: {
+    path: "/product",
+    element: <ProductPage />
   },
   SIGNUP: {
     path: "/signup",
-    element: <Signup />,
-    key: 2
+    element: <Signup />
   },
   SIGNIN: {
     path: "/signin",
-    element: <Signin />,
-    key: 3
+    element: <Signin />
   },
   ERROR404: {
     path: "/notfound",
-    element: <Error404 />,
-    key: 4
+    element: <Error404 />
   },
   PRODUCTS: {
     path: "/all-products",
-    element: <Products />,
-    key: 5
+    element: <Products />
+  },
+  CONTACTUS: {
+    path: "/contact-us",
+    element: <ContactUs />
   }
 };
