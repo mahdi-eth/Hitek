@@ -1,113 +1,76 @@
-import React from "react";
+/* eslint-disable react/react-in-jsx-scope */
+import { useState } from "react";
+const tabsData = [
+  {
+    label: "Review",
+    content:
+      "the «iPhone 12 Pro MAX» is new flagship with several new features and a quad-camera. Apple has used the same formula for the last few years for the features and overall design of this phone. The display of iPhone 12 Pro MAX is equipped with Super Retina panel to provide very good images to the user. This display has a very high resolution; At 6.7 inches, it holds about 458 pixels per inch, which is exactly equal to the pixel density of the iPhone XS. The back cover of the new iPhone is made of glass so that the phone does not have an antenna problem and the battery can be charged wirelessly in this phone. Of course, the metal frame houses this glass body This beautiful body is very resistant to scratches; So rest assured that water and dust do not easily affect the iPhone 12 Pro MAX.In addition, stains and grease do not have much effect on this quality screen, but this is not the end of the matter, the new",
+      titel:" overview",
+      title2:"ewxpert check"
+  },
+  {
+    label: "Expert check  ",
+    content:
+      "the «iPhone 12 Pro MAX» is new flagship with several new features and a quad-camera. Apple has used the same formula for the last few years for the features and overall design of this phone. The display of iPhone 12 Pro MAX is equipped with Super Retina panel to provide very good images to the user. This display has a very high resolution; At 6.7 inches, it holds about 458 pixels per inch, which is exactly equal to the pixel density of the iPhone XS. The back cover of the new iPhone is made of glass so that the phone does not have an antenna problem and the battery can be charged wirelessly in this phone. Of course, the metal frame houses this glass body This beautiful body is very resistant to scratches; So rest assured that water and dust do not easily affect the iPhone 12 Pro MAX.In addition, stains and grease do not have much effect on this quality screen, but this is not the end of the matter, the new iPhone can last for 30 minutes in 4 meters of water. Face recognition using the front camera is another feature used in the new Apple iPhone. But the most interesting and obvious difference in this new product is the cameras, which this time fit nicely in the back of the quad. Three cameras with 12-megapixel sensors along with a fourth TOF 3D LiDAR scanner, provide the user with very high quality and completely satisfying images. Ability to connect to 4G and 5G networks, Bluetooth version 5, version 14 of iOS are other features of this phone. In terms of hardware, the phone uses the new A14 chip, which in addition to the usual tasks, to support the new virtual reality capabilities that Apple is focusing on these days.According to Apple, this phone is 80 times faster than its version 11.the «iPhone 12 Pro MAX» is new flagship with several new features and a quad-camera. Apple has used the same formula for the last few years for the features and overall design of this phone. The display of iPhone 12 Pro MAX is equipped with Super Retina panel to provide very good images to the user. This display has a very high resolution; At 6.7 inches, it holds about 458 pixels per inch, which is exactly equal to the pixel density of the iPhone XS. The back cover of the new iPhone is made of glass so that the phone does not have an antenna problem and the battery can be charged wirelessly in this phone. Of course, the metal frame houses this glass body This beautiful body is very resistant to scratches; So rest assured that water and dust do not easily affect the iPhone 12 Pro MAX.In addition, stains and grease do not have much effect on this quality screen, but this is not the end of the matter, the new iPhone can last for 30 minutes in 4 meters of water. Fa",
+      titel:" overview"
+  },
+  {
+    label: "Specifications ",
+    content:
+      "the «iPhone 12 Pro MAX» is new flagship with several new features and a quad-camera. Apple has used the same formula for the last few years for the features and overall design of this phone. The display of iPhone 12 Pro MAX is equipped with Super Retina panel to provide very good images to the user. This display has a very high resolution; At 6.7 inches, it holds about 458 pixels per inch, which is exactly equal to the pixel density of the iPhone XS. The back cover of the new iPhone is made of glass so that the phone does not have an antenna problem and the battery can be charged wirelessly in this phone. Of course, the metal frame houses this glass body This beautiful body is very resistant to scratches; So rest assured that water and dust do not easily affect the iPhone 12 Pro MAX.In addition, stains and grease do not have much effect on this quality screen, but this is not the end of the matter, the new iPhone can last for 30 minutes in 4 meters of water. Face recognition using the front camera is another feature used in the new Apple iPhone. But the most interesting and obvious difference in this new product is the cameras, which this time fit nicely in the back of the quad. Three cameras with 12-megapixel sensors along with a fourth TOF 3D LiDAR scanner, provide the user with very high quality and completely satisfying images. Ability to connect to 4G and 5G networks, Bluetooth version 5, version ",
+      titel:" overview",
+      title2:"ewxpert check"
+  },
+  {
+    label: "User comments",
+    content:
+      "the «iPhone 12 Pro MAX» is new flagship with several new features and a quad-camera. Apple has used the same formula for the last few years for the features and overall design of this phone. The display of iPhone 12 Pro MAX is equipped with Super Retina panel to provide very good images to the user. This display has a very high resolution; At 6.7 inches, it holds about 458 pixels per inch, which is exactly equal to the pixel density of the iPhone XS. The back cover of the new iPhone is made of glass so that the phone does not have an antenna problem and the battery can be charged wirelessly in this phone. Of course, the metal frame houses this glass body This beautiful body is very resistant to scratches; So rest assured that water and dust do not easily affect the iPhone 12 Pro MAX.In addition, stains and grease do not have much effect on this quality screen, but this is not the end of the matter, the new iPhone can last for 30 minutes in 4 meters of water. Face recognition using the front camera is another feature used in the new Apple iPhone. But the most interesting and obvious difference in this new product is the cameras, which this time fit nicely in the back of the quad. Three cameras with 12-megapixel sensors along with a fourth TOF 3D LiDAR scanner, provide the user with very high quality and completely satisfying images. Ability to connect to 4G and 5G networks, Bluetooth version 5",
+      titel:" overview",
+      title2:"ewxpert check"
+  }
+];
+export function TabSwitch() {
+  const [activeTabIndex, setActiveTabIndex] = useState(0);
 
-export const TabSwitch = () => {
-  const [openTab, setOpenTab] = React.useState(1);
   return (
     <>
-      <div className="flex flex-wrap">
-        <div className="w-full">
-          <ul
-            className="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row"
-            role="tablist"
-          >
-            <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
-              <a
-                className={
-                  "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
-                  (openTab === 1
-                    ? "text-white bg-"  + "-600"
-                    : "text-"  + "-600 bg-white")
-                }
-                onClick={e => {
-                  e.preventDefault();
-                  setOpenTab(1);
-                }}
-                data-toggle="tab"
-                href="#link1"
-                role="tablist"
-              >
-                Profile
-              </a>
-            </li>
-            <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
-              <a
-                className={
-                  "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
-                  (openTab === 2
-                    ? "text-white bg-"  + "-600"
-                    : "text-"  + "-600 bg-white")
-                }
-                onClick={e => {
-                  e.preventDefault();
-                  setOpenTab(2);
-                }}
-                data-toggle="tab"
-                href="#link2"
-                role="tablist"
-              >
-                 Settings
-              </a>
-            </li>
-            <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
-              <a
-                className={
-                  "text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal " +
-                  (openTab === 3
-                    ? "text-white bg-"  + "-600"
-                    : "text-"  + "-600 bg-white")
-                }
-                onClick={e => {
-                  e.preventDefault();
-                  setOpenTab(3);
-                }}
-                data-toggle="tab"
-                href="#link3"
-                role="tablist"
-              >
-                 Options
-              </a>
-            </li>
-          </ul>
-          <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
-            <div className="px-4 py-5 flex-auto">
-              <div className="tab-content tab-space">
-                <div className={openTab === 1 ? "block" : "hidden"} id="link1">
-                  <p>
-                    Collaboratively administrate empowered markets via
-                    plug-and-play networks. Dynamically procrastinate B2C users
-                    after installed base benefits.
-                    <br />
-                    <br /> Dramatically visualize customer directed convergence
-                    without revolutionary ROI.
-                  </p>
-                </div>
-                <div className={openTab === 2 ? "block" : "hidden"} id="link2">
-                  <p>
-                    Completely synergize resource taxing relationships via
-                    premier niche markets. Professionally cultivate one-to-one
-                    customer service with robust ideas.
-                    <br />
-                    <br />
-                    Dynamically innovate resource-leveling customer service for
-                    state of the art customer service.
-                  </p>
-                </div>
-                <div className={openTab === 3 ? "block" : "hidden"} id="link3">
-                  <p>
-                    Efficiently unleash cross-media information without
-                    cross-media value. Quickly maximize timely deliverables for
-                    real-time schemas.
-                    <br />
-                    <br /> Dramatically maintain clicks-and-mortar solutions
-                    without functional solutions.
-                  </p>
-                </div>
-              </div>
-            </div>
+      <div>
+        <div className="flex space-x-3 border-b">
+          {/* Loop through tab data and render button for each. */}
+          {tabsData.map((tab, idx) => {
+            return (
+              <button
+                key={idx}
+                className={`py-2 border-b-4 transition-colors duration-300 ${
+                  idx === activeTabIndex
+                    ? "border-teal-500"
+                    : "border-transparent hover:border-gray-200"
+                }`}
+                onClick={() => setActiveTabIndex(idx)}>
+                {tab.label}
+              </button>
+            );
+          })}
+        </div>
+        {/* Show active tab content. */}
+        <div className="py-4 px-10 border-t-2 border-gray-500 flex flex-col ">
+          <span className="font-semibold">{tabsData[activeTabIndex].titel}</span>
+          <p className="py-8">{tabsData[activeTabIndex].content}</p>
+          <span className="text-sky-500 pb-8">show more</span>
+          <hr />
+          <hr />
+          <hr />
+          <hr />
+
+          <div className="pt-10 flex flex-wrap flex-col">
+          <span className="font-semibold ">{tabsData[activeTabIndex].title2}</span>
+          <div className="">
+          <p className="py-8">{tabsData[activeTabIndex].content}</p>
+          <p className="py-8">{tabsData[activeTabIndex].content}</p>
+          </div>
           </div>
         </div>
       </div>
     </>
   );
-};
-
+}

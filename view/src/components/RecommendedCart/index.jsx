@@ -3,7 +3,7 @@ import React from "react";
 export const RecomendedCart = ({image, desc,name}) => {
   return (
     <>
-      <div className="w-full flex flex-col gap-8 items-center py-7 rounded-lg overflow-hidden shadow-lg bg-blue-50">
+      <div className="w-50 flex flex-col gap-8 items-center py-7 rounded-lg overflow-hidden shadow-lg bg-blue-50">
         <img
           className="w-full object-cover"
           style={{ width: "150px" }}
