@@ -6,3 +6,5 @@ export * from "./filterbtn/index";
 export * from "./filters/index";
 export * from "./contactcard/index";
 export * from "./contactform/index";
+export * from "./signin/index";
+export * from "./forgotpass/index";
