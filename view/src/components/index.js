@@ -8,3 +8,4 @@ export * from "./contactcard/index";
 export * from "./contactform/index";
 export * from './addToCartButton';
 export * from './RecommendedCart'
+export * from './tabSwitch'

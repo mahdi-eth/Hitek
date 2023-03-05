@@ -18,6 +18,7 @@ import Fastdelivery from "@/assets/images/deliverySection/Fastdelivery.png";
 import { Header } from "@/layout";
 import img from "@/assets/images/product/product.png";
 import { RecomendedCart } from "@/components";
+import { TabSwitch } from "@/components";
 
 export function ProductPage() {
   return (
@@ -190,6 +191,7 @@ export function ProductPage() {
           />
         </div>
         <hr /> 
+        <TabSwitch/>
       </div>
     </div>
   );
