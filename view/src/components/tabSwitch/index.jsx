@@ -61,6 +61,7 @@ export function TabSwitch() {
           <hr />
           <hr />
           <hr />
+          <hr />
 
           <div className="pt-10 flex flex-wrap flex-col">
           <span className="font-semibold ">{tabsData[activeTabIndex].title2}</span>
