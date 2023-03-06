@@ -10,3 +10,4 @@ export * from "./signin/index";
 export * from "./forgotpass/index";
 export * from './addToCartButton';
 export * from './RecommendedCart'
+export * from './tabSwitch'

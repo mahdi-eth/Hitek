@@ -18,6 +18,7 @@ import Fastdelivery from "@/assets/images/deliverySection/Fastdelivery.png";
 import { Header } from "@/layout";
 import img from "@/assets/images/product/product.png";
 import { RecomendedCart } from "@/components";
+import { TabSwitch } from "@/components";
 
 export function ProductPage() {
   return (
@@ -160,7 +161,7 @@ export function ProductPage() {
             <span>Warranty of originality</span>
             <img src={WarrantyOfOriginality} alt="" />
           </div>
-          <div className="flex justify-between px-14 w-full">
+          <div className="flex justify-between px-14 w-full ">
             <span className="font-bold">Related products</span>
             <span>
               <button className="border shadow-lg border-primary px-10 py-2 rounded-lg font-bold  items-center align-middle">
@@ -169,11 +170,10 @@ export function ProductPage() {
             </span>
           </div>
         </div>
-        <div className="flex gap-4">
+        <div className="flex gap-4 pb-10">
           <RecomendedCart
             image={img}
             desc={"Bored work from home? You can make a juice for your health"}
-         
           />
           <RecomendedCart
             image={img}
@@ -182,14 +182,24 @@ export function ProductPage() {
           <RecomendedCart
             image={img}
             desc={"Have a much project? You must have a this Savage Laptop"}
-            
           />
           <RecomendedCart
             image={img}
             desc={"Bored work from home? You can make a juice for your health"}
           />
         </div>
-        <hr /> 
+        <hr />
+        <hr />
+        <hr />
+        <hr />
+        <div className="flex">
+          <div className="w-50">
+            <TabSwitch />
+          </div>
+          <div className="w-50">
+
+          </div>
+        </div>
       </div>
     </div>
   );
