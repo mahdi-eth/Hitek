@@ -34,9 +34,9 @@ export function ProductPage() {
           capacity 256 GB
         </div>
         <div
-          className=" flex gap-4 pt-10 pl-10 flex-wrap "
+          className=" flex pt-10 pl-10 flex-wrap"
           id="product-section">
-          <div className="grid-cols-8">
+          <div>
             <BsFillShareFill size={"40px"} />
             <CiHeart size={"40px"} />
             <MdOutlineStackedLineChart size={"40px"} />
@@ -81,10 +81,11 @@ export function ProductPage() {
             </div>
           </div>
           <div
-            className="p-2 shadow-2xl"
+            className="p-2 shadow-2xl ml-12"
             style={{
               height: "460px",
-              width: "388px"
+              width: "388px",
+              backgroundColor:'#F5F5F5'
             }}>
             <div className="flex justify-between p-8">
               <div className="font-bold"> the seller</div>
