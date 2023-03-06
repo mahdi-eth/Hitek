@@ -165,35 +165,43 @@ export function ProductPage() {
           <div className="flex justify-between px-14 w-full ">
             <span className="font-bold">Related products</span>
             <span>
-              <button className="border shadow-lg border-primary px-10 py-2 rounded-lg font-bold  items-center align-middle">
+              <button className="border shadow-lg border-primary px-6 py-2 rounded-lg font-bold  items-center align-middle">
                 show all
               </button>
             </span>
           </div>
         </div>
-        <div className="flex gap-4 pb-10">
+        <div className="flex justify-center items-center pb-6 flex-wrap gap-5">
+          <Link to={'/'}>
           <RecomendedCart
             image={img}
             desc={"Bored work from home? You can make a juice for your health"}
-          />
+            />
+            </Link>
+            <Link to={'/'}>
           <RecomendedCart
-            image={img}
-            desc={"Best budget Headphone for RPG Gamers"}
-          />
-          <RecomendedCart
-            image={img}
-            desc={"Have a much project? You must have a this Savage Laptop"}
-          />
+              image={img}
+              desc={"Bored work from home? You can make a juice for your health"}
+              />
+              </Link>
+            <Link to={'/'}>
           <RecomendedCart
             image={img}
             desc={"Bored work from home? You can make a juice for your health"}
-          />
+            />
+            </Link>
+            <Link to={'/'}>
+             <RecomendedCart
+            image={img}
+            desc={"Bored work from home? You can make a juice for your health"}
+            />
+            </Link>
         </div>
         <hr />
         <hr />
         <hr />
         <hr />
-        <div className="flex">
+        <div className="flex pt-10">
           <div className="w-50">
             <TabSwitch />
           </div>
