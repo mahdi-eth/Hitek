@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import logo from "@/assets/images/logo/logo.svg";
 import img from "@/assets/images/signuppage/bitmap.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { signupUserService } from "@/api/services/auth/signup";
-import 'react-toastify/dist/ReactToastify.css'
+import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 
 const schema = yup.object().shape({
@@ -39,6 +39,8 @@ export function Signup() {
     return null;
   };
 
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -51,7 +53,13 @@ export function Signup() {
     let res;
     try {
       res = await signupUserService(data);
-      toast.success(res.message);
+      toast.success(res.message, {
+        onClose: () => {
+          setTimeout(() => {
+            navigate("/signin");
+          }, 3000);
+        }
+      });
     } catch (ex) {
       toast.error(ex.response.data.message);
     }
