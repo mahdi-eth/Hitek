@@ -1,6 +1,5 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -34,18 +33,10 @@ export const SigninComponent = ({ setForgotPass }) => {
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="sm:min-w-360 text-left pb-6 mb-6">
-        <button
-          type="button"
-          className="bg-primary mb-6 relative transition duration-150 hover:bg-primary_hover font-semibold py-3 w-full rounded-lg shadow flex items-center justify-center">
-          <div className="absolute left-1 rounded-lg bg-white px-2 py-2">
-            <FcGoogle size={24} />
-          </div>
-          <p className="text-white">Sign in with Google</p>
-        </button>
         <div className="flex items-center mb-6">
           <div className="flex-1 h-px bg-gray-200"></div>
           <p className="mx-4 text-center font-bold text-_Gray">
-            Or, sign in with your email
+            Sign in with your email
           </p>
           <div className="flex-1 h-px bg-gray-200"></div>
         </div>

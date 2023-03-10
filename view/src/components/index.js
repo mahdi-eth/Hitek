@@ -14,4 +14,3 @@ export * from "./tabSwitch";
 export * from "./buyScetion";
 export * from "./recommendedSection";
 export * from "./deliverySection";
-export * from "./googleLoginBtn";

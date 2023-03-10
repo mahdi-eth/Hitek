@@ -6,9 +6,8 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { signupUserService } from "@/api/services/auth/signup";
-import "react-toastify/dist/ReactToastify.css";
+import 'react-toastify/dist/ReactToastify.css'
 import { ToastContainer, toast } from "react-toastify";
-import { GoogleBtn } from "@/components";
 
 const schema = yup.object().shape({
   name: yup.string().required("Name is required"),
@@ -80,11 +79,10 @@ export function Signup() {
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="sm:min-w-360 text-left mb-6">
-              <GoogleBtn />
             <div className="flex items-center mb-6">
               <div className="flex-1 h-px bg-gray-200"></div>
               <p className="mx-4 text-center font-bold text-_Gray">
-                Or, sign up with your email
+                Sign up with your email
               </p>
               <div className="flex-1 h-px bg-gray-200"></div>
             </div>
