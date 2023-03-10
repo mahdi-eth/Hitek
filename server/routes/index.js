@@ -11,3 +11,7 @@ exports.signin = router.post(
     require("../controller/auth/signin").handleUserLogin
 );
 
+exports.otp = router.post(
+    "/otp",
+    require("../controller/auth/OTP").sendOtpToEmail
+);

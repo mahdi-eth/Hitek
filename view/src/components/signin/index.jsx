@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { checkPropTypes } from "prop-types";
+import PropTypes from "prop-types";
 import Cookies from "js-cookie";
 import { ToastContainer, toast } from "react-toastify";
 import { signinUserService } from "@/api";
@@ -142,5 +142,5 @@ export const SigninComponent = ({ setForgotPass }) => {
 };
 
 SigninComponent.propTypes = {
-  setForgotPass: checkPropTypes.function
+  setForgotPass: PropTypes.func.isRequired
 };
