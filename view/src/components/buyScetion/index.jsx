@@ -17,11 +17,11 @@ export const BuySection = () => {
           className="flex flex-row flex-wrap  sm:items-center"
           id="product-section">
           <div className="flex flex-row items-center  p-5">
-            <div>
+            <div className='flex flex-col p-2 pb-32 gap-3'>
 
-            <BsFillShareFill size={"40px"} />
-            <CiHeart size={"40px"} />
-            <MdOutlineStackedLineChart size={"40px"} />
+            <CiHeart opacity='50%' size={"25px"} />
+            <BsFillShareFill opacity='50%' size={"25px"} />
+            <MdOutlineStackedLineChart opacity='50%' size={"25px"} />
             </div>
             <img
             style={{
