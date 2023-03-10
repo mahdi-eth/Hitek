@@ -8,9 +8,10 @@ export * from "./contactcard/index";
 export * from "./contactform/index";
 export * from "./signin/index";
 export * from "./forgotpass/index";
-export * from './addToCartButton';
-export * from './RecommendedCart'
-export * from './tabSwitch'
-export * from './buyScetion'
-export * from './recommendedSection'
-export * from './deliverySection'
+export * from "./addToCartButton";
+export * from "./RecommendedCart";
+export * from "./tabSwitch";
+export * from "./buyScetion";
+export * from "./recommendedSection";
+export * from "./deliverySection";
+export * from "./googleLoginBtn";

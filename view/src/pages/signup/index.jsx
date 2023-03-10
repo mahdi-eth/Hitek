@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import logo from "@/assets/images/logo/logo.svg";
 import img from "@/assets/images/signuppage/bitmap.png";
-import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { signupUserService } from "@/api/services/auth/signup";
-import 'react-toastify/dist/ReactToastify.css'
+import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
+import { GoogleBtn } from "@/components";
 
 const schema = yup.object().shape({
   name: yup.string().required("Name is required"),
@@ -80,14 +80,7 @@ export function Signup() {
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="sm:min-w-360 text-left mb-6">
-            <button
-              type="button"
-              className="bg-primary mb-6 relative transition duration-150 hover:bg-primary_hover font-semibold py-3 w-full rounded-lg shadow flex items-center justify-center">
-              <div className="absolute left-1 rounded-lg bg-white px-2 py-2">
-                <FcGoogle size={24} />
-              </div>
-              <p className="text-white">Sign up with Google</p>
-            </button>
+              <GoogleBtn />
             <div className="flex items-center mb-6">
               <div className="flex-1 h-px bg-gray-200"></div>
               <p className="mx-4 text-center font-bold text-_Gray">
