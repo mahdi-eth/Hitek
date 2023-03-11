@@ -16,7 +16,7 @@ const schema = yup.object().shape({
     .min(6, "Password must be at least 6 characters")
 });
 
-export const SigninComponent = ({ setForgotPass }) => {
+export const SigninComponent = () => {
   const {
     register,
     handleSubmit,
@@ -118,11 +118,6 @@ export const SigninComponent = ({ setForgotPass }) => {
                 Keep me sign in
               </label>
             </div>
-            <a
-              onClick={() => setForgotPass(true)}
-              className="text-primary cursor-pointer">
-              Forgot password?
-            </a>
           </div>
           <button
             type="submit"
@@ -139,8 +134,4 @@ export const SigninComponent = ({ setForgotPass }) => {
       </div>
     </>
   );
-};
-
-SigninComponent.propTypes = {
-  setForgotPass: PropTypes.func.isRequired
 };

@@ -2,13 +2,12 @@ import React, { useEffect, useState } from "react";
 import logo from "@/assets/images/logo/logo.svg";
 import img from "@/assets/images/singinpage/Image.png";
 import { Link } from "react-router-dom";
-import { ForgotPass, SigninComponent } from "@/components";
+import { SigninComponent } from "@/components";
 import 'react-toastify/dist/ReactToastify.css'
 import { ToastContainer } from "react-toastify";
 
 export function Signin() {
   const [width, setWidth] = useState(window.innerWidth);
-  const [forgotPass, setForgotPass] = useState(false);
 
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
@@ -40,11 +39,7 @@ export function Signin() {
             alt="An image"
           />
         </div>
-        {forgotPass ? (
-          <ForgotPass setForgotPass={setForgotPass} />
-        ) : (
-          <SigninComponent setForgotPass={setForgotPass} />
-        )}
+          <SigninComponent />
       </div>
     </>
   );

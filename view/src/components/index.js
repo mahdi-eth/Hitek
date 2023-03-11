@@ -7,7 +7,6 @@ export * from "./filters/index";
 export * from "./contactcard/index";
 export * from "./contactform/index";
 export * from "./signin/index";
-export * from "./forgotpass/index";
 export * from "./addToCartButton";
 export * from "./RecommendedCart";
 export * from "./tabSwitch";
