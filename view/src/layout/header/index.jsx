@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import Cookies from "js-cookie";
 import { Link } from "react-router-dom";
 import logo from "@/assets/images/logo/logo.svg";
 import { Dropdown } from "@/components";
@@ -6,6 +7,7 @@ import { Dropdown } from "@/components";
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const cookies = Cookies.get("hitekAuthToken");
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -100,13 +102,15 @@ export function Header() {
             <li>
               <Dropdown value={"Macbooks"} />
             </li>
-            <li className="w-full">
-              <Link
-                to="/signup"
-                className="border-b-2 font-medium border-b-white hover:border-b-primary lg:border lg:border-primary hover:lg:bg-primary hover:lg:text-white transform duration-150 text-primary lg:shadow pb-2 lg:py-2 lg:px-9 text-base lg:ml-14 lg:rounded-lg">
-                Sign up
-              </Link>
-            </li>
+            {!cookies && (
+              <li className="w-full">
+                <Link
+                  to="/signup"
+                  className="border-b-2 font-medium border-b-white hover:border-b-primary lg:border lg:border-primary hover:lg:bg-primary hover:lg:text-white transform duration-150 text-primary lg:shadow pb-2 lg:py-2 lg:px-9 text-base lg:ml-14 lg:rounded-lg">
+                  Sign up
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
       </div>

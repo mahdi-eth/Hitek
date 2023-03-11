@@ -5,6 +5,7 @@ import { ProductCard, FilterButton, Filters } from "@/components";
 import img from "@/assets/images/product/product.png";
 
 export function Products() {
+
   return (
     <div className="container mx-auto lg:minmin-w-fit md:px-20 sm:px-16 px-8">
       <Header />
