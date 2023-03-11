@@ -4,6 +4,7 @@ const server = express();
 const appRootPath = require("app-root-path");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const { createNewBrand } = require("./controller/brands");
 
 // Configurations
 require("dotenv").config({
@@ -19,6 +20,8 @@ mongoose.connect(process.env.DB_ADDRESS || "mongodb://localhost:27017/hitek");
 // Handlers
 server.use("/api", require("./routes").signup);
 server.use("/api", require("./routes").signin);
+
+createNewBrand();
 
 server.listen(process.env.PORT || 3000, () =>
     console.log(
