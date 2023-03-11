@@ -24,9 +24,10 @@ export const ForgotPass = ({ setForgotPass }) => {
   });
 
   const onSubmit = async (email) => {
+    let res;
     try {
-      await userOTPService(email);
-      toast.success("OTP sent to your email!");
+      res = await userOTPService(email);
+      toast.success(res.message);
       setShowOtpInput(true);
     } catch (error) {
       toast.error(error.response.data.message);
@@ -87,7 +88,7 @@ export const ForgotPass = ({ setForgotPass }) => {
                 onChange={(e) => setOtp(e.target.value)}
                 id="otp"
                 className="shadow-sm px-5 bg-white py-3 border border-gray-300 text-_Gray text-sm rounded-lg focus-visible:outline-primary focus-visible:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus-visible:outline-primary dark:focus-visible:border-blue-500 dark:shadow-sm-light"
-                placeholder="Enter OTP"
+                placeholder="Enter sent code"
               />
             </div>
           )}
@@ -102,7 +103,7 @@ export const ForgotPass = ({ setForgotPass }) => {
           <button
             type="submit"
             className="bg-primary mb-6 text-white transition duration-150 hover:bg-primary_hover font-semibold py-3 w-full rounded-lg shadow flex items-center justify-center">
-            Send code
+            { showOtpInput ? "Check" :"Send code"}
           </button>
           <p className="text-sm">
             Don’t have an account?{" "}
