@@ -103,9 +103,8 @@ const createNewBrand = async () => {
                 phone: true
             }
         ];
-
         Brands.insertMany(brands);
     }
 };
 
-module.exports = { createNewBrand }
+module.exports = { createNewBrand };

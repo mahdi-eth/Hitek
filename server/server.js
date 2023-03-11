@@ -5,6 +5,7 @@ const appRootPath = require("app-root-path");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const { createNewBrand } = require("./controller/brands");
+const { randomProducts, createProducts } = require("./controller/products");
 
 // Configurations
 require("dotenv").config({
@@ -22,6 +23,7 @@ server.use("/api", require("./routes").signup);
 server.use("/api", require("./routes").signin);
 
 createNewBrand();
+createProducts();
 
 server.listen(process.env.PORT || 3000, () =>
     console.log(
