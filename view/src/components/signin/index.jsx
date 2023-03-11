@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import * as yup from "yup";
@@ -16,6 +16,8 @@ const schema = yup.object().shape({
 });
 
 export const SigninComponent = () => {
+  const [rememberMe, setRememberMe] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -31,7 +33,15 @@ export const SigninComponent = () => {
     try {
       res = await signinUserService(data);
       const { message, token } = res;
-      Cookies.set("token", token);
+      if (rememberMe) {
+        const expirationDate = new Date();
+        expirationDate.setDate(expirationDate.getDate() + 30);
+        Cookies.set("hitekAuthToken", token, { expires: expirationDate });
+      } else {
+        const expirationDate = new Date();
+        expirationDate.setDate(expirationDate.getDate() + 1);
+        Cookies.set("hitekAuthToken", token, { expires: expirationDate });
+      }
       toast.success(message, {
         onClose: () => {
           setTimeout(() => {
@@ -106,6 +116,7 @@ export const SigninComponent = () => {
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center h-5">
               <input
+                onChange={(e) => setRememberMe(e.target.checked)}
                 autoComplete="none"
                 id="terms"
                 type="checkbox"

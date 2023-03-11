@@ -3,8 +3,7 @@ const jwt = require("jsonwebtoken");
 const { User } = require("../../../model/user");
 
 const handleUserLogin = async (req, res) => {
-    const email = req?.body?.email;
-    const password = req?.body?.password;
+    const { email, password } = req?.body;
 
     if (!email) {
         return res.status(400).json({ message: "Email must be provided!" });
