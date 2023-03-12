@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { AiFillStar } from "react-icons/ai";
-import { checkPropTypes } from "prop-types";
+import { PropTypes } from "prop-types";
 
 export const ProductCard = ({ image, name, price, score }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -28,7 +28,9 @@ export const ProductCard = ({ image, name, price, score }) => {
         </div>
       )}
       <img
-        className={`w-full object-cover rounded-sm ${imageLoaded ? "" : "hidden"}`}
+        className={`w-full object-cover rounded-sm ${
+          imageLoaded ? "" : "hidden"
+        }`}
         style={{ width: "150px" }}
         src={image}
         alt={name}
@@ -58,8 +60,8 @@ export const ProductCard = ({ image, name, price, score }) => {
 };
 
 ProductCard.propTypes = {
-  image: checkPropTypes.string,
-  name: checkPropTypes.string,
-  price: checkPropTypes.number,
-  score: checkPropTypes.number
+  image: PropTypes.string,
+  name: PropTypes.string,
+  price: PropTypes.number,
+  score: PropTypes.number
 };

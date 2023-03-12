@@ -1,4 +1,4 @@
-import { checkPropTypes } from "prop-types";
+import { PropTypes } from "prop-types";
 import { useState, React, useEffect, useRef } from "react";
 import { getHeaderBrandsService } from "@/api";
 
@@ -72,5 +72,5 @@ export const Dropdown = ({ value }) => {
 };
 
 Dropdown.propTypes = {
-  value: checkPropTypes.string
+  value: PropTypes.string
 };

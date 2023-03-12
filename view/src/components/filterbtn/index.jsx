@@ -1,17 +1,25 @@
-import { useState, React } from "react";
+import { useState, React, useEffect } from "react";
 import { Checkbox } from "@/components";
 import { AiOutlineSearch } from "react-icons/ai";
+import { getFiltersService } from "@/api";
 
 export const FilterButton = () => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [brands, setBrands] = useState([]);
+  const [CPUs, setCPUs] = useState([]);
 
-  const renderCheckbox = (value) => {
-    const renderedItems = [];
-    for (let i = 0; i < 7; i++) {
-      renderedItems.push(<Checkbox id={i} value={value} />);
-    }
-    return renderedItems;
+  const renderCheckbox = (items) => {
+    return items.map((item, index) => (
+      <Checkbox key={index} id={index} value={item} />
+    ));
   };
+
+  useEffect(() => {
+    getFiltersService().then((res) => {
+      setBrands(res.brands);
+      setCPUs(res.CPUs);
+    });
+  }, []);
 
   return (
     <>
@@ -43,16 +51,14 @@ export const FilterButton = () => {
                 </div>
                 <hr className="border-gray-300 w-full my-4" />
                 <div className="flex flex-col flex-wrap h-64">
-                  {renderCheckbox("Lenova")}
-                  {renderCheckbox("Apple")}
+                  {renderCheckbox(brands)}
                 </div>
               </div>
               <div className="CPU border bg-gray-50 border-gray-300 rounded-lg p-3 flex flex-col justify-center items-start">
                 <p className="text-lg font-medium text-ـDarkblue_hover">CPU</p>
                 <hr className="border-gray-300 w-full my-4" />
                 <div className="flex flex-col flex-wrap h-64">
-                  {renderCheckbox("Apple")}
-                  {renderCheckbox("Lenova")}
+                  {renderCheckbox(CPUs)}
                 </div>
               </div>
               <div className="check flex items-center bg-gray-50 px-5 py-4 border border-gray-300 rounded-lg gap-12">
