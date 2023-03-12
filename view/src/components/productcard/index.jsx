@@ -28,7 +28,7 @@ export const ProductCard = ({ image, name, price, score }) => {
         </div>
       )}
       <img
-        className={`w-full object-cover ${imageLoaded ? "" : "hidden"}`}
+        className={`w-full object-cover rounded-sm ${imageLoaded ? "" : "hidden"}`}
         style={{ width: "150px" }}
         src={image}
         alt={name}
