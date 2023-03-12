@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Checkbox } from "@/components";
 import { AiOutlineSearch } from "react-icons/ai";
 import { getFiltersService, postFiltersDataService } from "@/api";
+import { PropTypes } from "prop-types";
 
-export const FilterButton = () => {
+export const FilterButton = ({ setProducts }) => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [brands, setBrands] = useState([]);
   const [CPUs, setCPUs] = useState([]);
@@ -52,7 +53,13 @@ export const FilterButton = () => {
   }, []);
 
   const filter = () => {
-    postFiltersDataService(selectedBrands, selectedCPUs, availableProducts);
+    postFiltersDataService([
+      selectedBrands,
+      selectedCPUs,
+      availableProducts
+    ]).then((res) => {
+      setProducts(res);
+    });
   };
 
   return (
@@ -123,4 +130,8 @@ export const FilterButton = () => {
       )}
     </>
   );
+};
+
+FilterButton.propTypes = {
+  setProducts: PropTypes.func
 };

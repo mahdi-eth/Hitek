@@ -91,7 +91,7 @@ const generateRandomProduct = () => {
     };
 };
 
-const randomProducts = Array.from({ length: 60 }, () =>
+const randomProducts = Array.from({ length: 250 }, () =>
     generateRandomProduct()
 );
 

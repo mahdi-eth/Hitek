@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Checkbox } from "@/components";
 import { AiOutlineSearch } from "react-icons/ai";
 import { getFiltersService, postFiltersDataService } from "@/api";
+import { PropTypes } from "prop-types";
 
-export function Filters() {
+export const Filters = ({ setProducts }) => {
   const [brands, setBrands] = useState([]);
   const [CPUs, setCPUs] = useState([]);
   const [availableProducts, setAvailableProducts] = useState(false);
@@ -20,7 +21,7 @@ export function Filters() {
       }
     });
   };
-  
+
   const handleCPUChange = (event) => {
     const { value, checked } = event.target;
     setSelectedCPUs((prevSelectedCPUs) => {
@@ -33,9 +34,13 @@ export function Filters() {
   };
 
   const filter = () => {
-    postFiltersDataService([selectedBrands, selectedCPUs, availableProducts]).then((res) => {
-      console.log(res);
-    })
+    postFiltersDataService([
+      selectedBrands,
+      selectedCPUs,
+      availableProducts
+    ]).then((res) => {
+      setProducts(res);
+    });
   };
 
   useEffect(() => {
@@ -111,4 +116,8 @@ export function Filters() {
       </button>
     </div>
   );
-}
+};
+
+Filters.propTypes = {
+  setProducts: PropTypes.func
+};
