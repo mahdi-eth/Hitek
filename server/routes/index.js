@@ -25,3 +25,8 @@ exports.filters = router.get(
     "/filters",
     require("../controller/fetchFilters").getFilters
 );
+
+exports.filters = router.post(
+    "/filters",
+    require("../controller/postFilters").postFilters
+);

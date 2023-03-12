@@ -1,17 +1,47 @@
-import { useState, React, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Checkbox } from "@/components";
 import { AiOutlineSearch } from "react-icons/ai";
-import { getFiltersService } from "@/api";
+import { getFiltersService, postFiltersDataService } from "@/api";
 
 export const FilterButton = () => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [brands, setBrands] = useState([]);
   const [CPUs, setCPUs] = useState([]);
+  const [selectedBrands, setSelectedBrands] = useState([]);
+  const [selectedCPUs, setSelectedCPUs] = useState([]);
+  const [availableProducts, setAvailableProducts] = useState(false);
 
-  const renderCheckbox = (items) => {
+  const renderCheckbox = (items, onChangeHandler) => {
     return items.map((item, index) => (
-      <Checkbox key={index} id={index} value={item} />
+      <Checkbox
+        key={index}
+        id={index}
+        value={item}
+        onChange={onChangeHandler}
+      />
     ));
+  };
+
+  const handleBrandChange = (event) => {
+    const { value, checked } = event.target;
+    setSelectedBrands((prevSelectedBrands) => {
+      if (checked) {
+        return [...prevSelectedBrands, value];
+      } else {
+        return prevSelectedBrands.filter((brand) => brand !== value);
+      }
+    });
+  };
+
+  const handleCPUChange = (event) => {
+    const { value, checked } = event.target;
+    setSelectedCPUs((prevSelectedCPUs) => {
+      if (checked) {
+        return [...prevSelectedCPUs, value];
+      } else {
+        return prevSelectedCPUs.filter((cpu) => cpu !== value);
+      }
+    });
   };
 
   useEffect(() => {
@@ -20,6 +50,10 @@ export const FilterButton = () => {
       setCPUs(res.CPUs);
     });
   }, []);
+
+  const filter = () => {
+    postFiltersDataService(selectedBrands, selectedCPUs, availableProducts);
+  };
 
   return (
     <>
@@ -51,14 +85,14 @@ export const FilterButton = () => {
                 </div>
                 <hr className="border-gray-300 w-full my-4" />
                 <div className="flex flex-col flex-wrap h-64">
-                  {renderCheckbox(brands)}
+                  {renderCheckbox(brands, handleBrandChange)}
                 </div>
               </div>
               <div className="CPU border bg-gray-50 border-gray-300 rounded-lg p-3 flex flex-col justify-center items-start">
                 <p className="text-lg font-medium text-ـDarkblue_hover">CPU</p>
                 <hr className="border-gray-300 w-full my-4" />
                 <div className="flex flex-col flex-wrap h-64">
-                  {renderCheckbox(CPUs)}
+                  {renderCheckbox(CPUs, handleCPUChange)}
                 </div>
               </div>
               <div className="check flex items-center bg-gray-50 px-5 py-4 border border-gray-300 rounded-lg gap-12">
@@ -66,14 +100,22 @@ export const FilterButton = () => {
                   Available products
                 </span>
                 <label className="relative inline-flex items-center cursor-pointer">
-                  <input type="checkbox" value="" className="sr-only peer" />
+                  <input
+                    type="checkbox"
+                    value=""
+                    className="sr-only peer"
+                    onChange={(e) => setAvailableProducts(e.target.checked)}
+                  />
                   <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
                 </label>
               </div>
             </div>
             <button
               className="bg-primary text-white w-full py-2 rounded mt-4"
-              onClick={() => setIsFilterOpen(false)}>
+              onClick={() => {
+                filter();
+                setIsFilterOpen(false);
+              }}>
               Apply filters
             </button>
           </div>

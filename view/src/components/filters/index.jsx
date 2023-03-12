@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Checkbox } from "@/components";
 import { AiOutlineSearch } from "react-icons/ai";
-import { getFiltersService } from "@/api";
+import { getFiltersService, postFiltersDataService } from "@/api";
 
 export function Filters() {
   const [brands, setBrands] = useState([]);
@@ -12,7 +12,6 @@ export function Filters() {
 
   const handleBrandChange = (event) => {
     const { value, checked } = event.target;
-    console.log(value, checked);
     setSelectedBrands((prevSelectedBrands) => {
       if (checked) {
         return [...prevSelectedBrands, value];
@@ -24,7 +23,6 @@ export function Filters() {
   
   const handleCPUChange = (event) => {
     const { value, checked } = event.target;
-    console.log(value, checked);
     setSelectedCPUs((prevSelectedCPUs) => {
       if (checked) {
         return [...prevSelectedCPUs, value];
@@ -35,8 +33,9 @@ export function Filters() {
   };
 
   const filter = () => {
-    // Call your post function here with the selected filters
-    console.log(selectedBrands, selectedCPUs, availableProducts);
+    postFiltersDataService([selectedBrands, selectedCPUs, availableProducts]).then((res) => {
+      console.log(res);
+    })
   };
 
   useEffect(() => {
