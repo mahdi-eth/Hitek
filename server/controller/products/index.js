@@ -57,10 +57,15 @@ const getRandomFeatures = () => {
     return features[Math.floor(Math.random() * features.length)];
 };
 
+const generateRating = () => {
+    const rating = (Math.floor(Math.random() * 21) + 40) / 10;
+    return Math.min(rating.toFixed(1), 5);
+};
+
 const generateRandomProduct = () => {
     const brand = brands[Math.floor(Math.random() * brands.length)];
     const name = faker.commerce.productName();
-    const rating = Math.floor(Math.random() * 5) + 1;
+    const rating = generateRating();
     const type = types[Math.floor(Math.random() * types.length)];
     const price = Math.floor(Math.random() * 1000) + 50;
     const features = getRandomFeatures();
