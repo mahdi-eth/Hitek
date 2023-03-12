@@ -3,6 +3,7 @@ import Cookies from "js-cookie";
 import { Link } from "react-router-dom";
 import logo from "@/assets/images/logo/logo.svg";
 import { Dropdown } from "@/components";
+import { FaUserCircle } from "react-icons/fa";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -50,7 +51,7 @@ export function Header() {
         {isOpen && (
           <ul
             ref={dropdownRef}
-            className="sub-menu flex transform duration-1000 z-10 flex-col text-center justify-center fixed top-0 left-0 w-full items-center bg-gray-50 dark:bg-gray-80 dark:border-gray-700 transition-all">
+            className="sub-menu flex md:hidden transform duration-1000 z-10 flex-col text-center justify-center fixed top-0 left-0 w-full items-center bg-gray-50 dark:bg-gray-80 dark:border-gray-700 transition-all">
             <li className="w-full pb-2 font-semibold py-4 bg-white text-_Gray border-b border-gray-300">
               <Link
                 to="/"
@@ -71,13 +72,24 @@ export function Header() {
             <li className="w-full py-4 bg-white text-_Gray border-b border-gray-300">
               <Dropdown value={"Macbooks"} />
             </li>
-            <li className="w-full py-4  bg-white text-_Gray border-b border-gray-300">
-              <Link
-                to="/signup"
-                className="w-full pb-2 border-b-2 border-white hover:border-primary text-inherit font-semibold text-base">
-                Sign up
-              </Link>
-            </li>
+            {!cookies && (
+              <li className="w-full py-4  bg-white text-_Gray border-b border-gray-300">
+                <Link
+                  to="/signup"
+                  className="w-full pb-2 border-b-2 border-white hover:border-primary text-inherit font-semibold text-base">
+                  Sign up
+                </Link>
+              </li>
+            )}
+            {cookies && (
+              <li className="w-full py-4 flex justify-center bg-white text-_Gray border-b border-gray-300">
+                <Link
+                  to="/signup"
+                  className="font-medium hover:lg:text-primary_hover flex justify-center w-full text-center transform duration-150 text-primary pb-2 lg:py-2 lg:px-9 text-base lg:ml-14">
+                  <FaUserCircle size={38} />
+                </Link>
+              </li>
+            )}
           </ul>
         )}
         <div className="hidden w-full md:block md:w-auto" id="navbar-dropdown">
@@ -108,6 +120,15 @@ export function Header() {
                   to="/signup"
                   className="border-b-2 font-medium border-b-white hover:border-b-primary lg:border lg:border-primary hover:lg:bg-primary hover:lg:text-white transform duration-150 text-primary lg:shadow pb-2 lg:py-2 lg:px-9 text-base lg:ml-14 lg:rounded-lg">
                   Sign up
+                </Link>
+              </li>
+            )}
+            {cookies && (
+              <li className="w-full">
+                <Link
+                  to="/signup"
+                  className="font-medium hover:lg:text-primary_hover transform duration-150 text-primary pb-2 lg:py-2 lg:px-9 text-base lg:ml-14">
+                  <FaUserCircle size={45} />
                 </Link>
               </li>
             )}
