@@ -1,8 +1,10 @@
 import { checkPropTypes } from "prop-types";
 import { useState, React, useEffect, useRef } from "react";
+import { getHeaderBrandsService } from "@/api";
 
 export const Dropdown = ({ value }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [brandsToShow, setBrandsToShow] = useState([]);
   const dropdownRef = useRef();
 
   const toggleDropdown = () => {
@@ -15,12 +17,18 @@ export const Dropdown = ({ value }) => {
         setIsOpen(false);
       }
     }
-
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [dropdownRef]);
+
+  useEffect(() => {
+    const type = { type: value.toLowerCase().slice(0, -1) };
+    getHeaderBrandsService(type)
+      .then((res) => setBrandsToShow(res.brands))
+      .catch((error) => console.log(error));
+  }, []);
 
   return (
     <div className="relative inline-block text-left">
@@ -47,24 +55,15 @@ export const Dropdown = ({ value }) => {
             role="menu"
             aria-orientation="vertical"
             aria-labelledby="options-menu">
-            <a
-              href="#"
-              className="block px-4 py-2 z-10 text-sm text-_Gray hover:bg-gray-100 hover:text-gray-900"
-              role="menuitem">
-              Dropdown 1
-            </a>
-            <a
-              href="#"
-              className="block px-4 py-2 z-10 text-sm text-_Gray hover:bg-gray-100 hover:text-gray-900"
-              role="menuitem">
-              Dropdown 2
-            </a>
-            <a
-              href="#"
-              className="block px-4 py-2 z-10 text-sm text-_Gray hover:bg-gray-100 hover:text-gray-900"
-              role="menuitem">
-              Dropdown 3
-            </a>
+            {brandsToShow.map((brand) => (
+              <a
+                href="#"
+                className="block px-4 py-2 z-10 text-sm text-_Gray hover:bg-gray-100 hover:text-gray-900"
+                role="menuitem"
+                key={brand}>
+                {brand}
+              </a>
+            ))}
           </div>
         </div>
       )}
@@ -73,6 +72,5 @@ export const Dropdown = ({ value }) => {
 };
 
 Dropdown.propTypes = {
-    value: checkPropTypes.string,
-  };
-  
+  value: checkPropTypes.string
+};

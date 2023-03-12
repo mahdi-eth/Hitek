@@ -10,3 +10,8 @@ exports.signin = router.post(
     "/signin",
     require("../controller/auth/signin").handleUserLogin
 );
+
+exports.header = router.post(
+    "/header",
+    require("../controller/header").getHeaderBrands
+);

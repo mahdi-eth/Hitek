@@ -19,11 +19,12 @@ server.use(express.urlencoded({ extended: true }));
 mongoose.connect(process.env.DB_ADDRESS || "mongodb://localhost:27017/hitek");
 
 // Handlers
-server.use("/api", require("./routes").signup);
-server.use("/api", require("./routes").signin);
-
 createNewBrand();
 createProducts();
+
+server.use("/api", require("./routes").signup);
+server.use("/api", require("./routes").signin);
+server.use("/api", require("./routes").header);
 
 server.listen(process.env.PORT || 3000, () =>
     console.log(
