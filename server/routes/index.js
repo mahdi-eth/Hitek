@@ -15,3 +15,8 @@ exports.header = router.post(
     "/header",
     require("../controller/header").getHeaderBrands
 );
+
+exports.products = router.get(
+    "/products",
+    require("../controller/fetchProducts").getProducts
+);

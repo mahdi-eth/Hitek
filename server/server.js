@@ -25,6 +25,7 @@ createProducts();
 server.use("/api", require("./routes").signup);
 server.use("/api", require("./routes").signin);
 server.use("/api", require("./routes").header);
+server.use("/api", require("./routes").products);
 
 server.listen(process.env.PORT || 3000, () =>
     console.log(
