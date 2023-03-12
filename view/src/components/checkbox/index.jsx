@@ -5,7 +5,7 @@ export function Checkbox({ value, id }) {
   const number = Math.random();
 
   return (
-    <div className="flex items-center mr-4 my-2">
+    <div className="flex items-center mr-2 my-2">
       <input
         id={"inline-" + value + "-" + id + "-" + number}
         type="checkbox"
@@ -13,7 +13,7 @@ export function Checkbox({ value, id }) {
       />
       <label
         htmlFor={"inline-" + value + "-" + id + "-" + number}
-        className="ml-2 px-2 text-sm font-medium text-gray-500 dark:text-gray-300">
+        className="px-2 text-sm font-medium text-gray-500 dark:text-gray-300">
         {value}
       </label>
     </div>

@@ -12,7 +12,6 @@ export function Products() {
     getProductsService().then((res) => setProducts([...res.products]));
   }, []);
 
-  // Get current products
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = products.slice(
@@ -20,7 +19,6 @@ export function Products() {
     indexOfLastProduct
   );
 
-  // Logic for displaying page numbers
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(products.length / productsPerPage); i++) {
     pageNumbers.push(i);

@@ -1,20 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Checkbox } from "@/components";
 import { AiOutlineSearch } from "react-icons/ai";
+import { getFiltersService } from "@/api";
 
 export function Filters() {
-  const renderCheckbox = (value) => {
-    const renderedItems = [];
-    for (let i = 0; i < 7; i++) {
-      renderedItems.push(<Checkbox id={i} value={value} />);
-    }
-    return renderedItems;
-  };
+  const [brands, setBrands] = useState([]);
+  const [CPUs, setCPUs] = useState([]);
 
   // Todo
   const filter = () => {
     null;
   };
+
+  useEffect(() => {
+    getFiltersService().then((res) => {
+      setBrands(res.brands);
+      setCPUs(res.CPUs);
+    });
+  }, []);
 
   return (
     <div className="flex flex-col gap-5 w-full sm:max-w-270">
@@ -38,17 +41,19 @@ export function Filters() {
       <div className="brand hidden border bg-gray-50 border-gray-300 rounded-lg p-3 sm:flex flex-col justify-center items-start">
         <p className="text-lg font-medium text-ـDarkblue_hover">Brand</p>
         <hr className="border-gray-300 w-full my-4" />
-        <div className="flex flex-col flex-wrap h-64">
-          {renderCheckbox("Lenova")}
-          {renderCheckbox("Apple")}
+        <div className="brands-section flex flex-col flex-wrap h-64">
+          {brands.map((brand, index) => (
+            <Checkbox key={index} id={index} value={brand} />
+          ))}
         </div>
       </div>
       <div className="CPU hidden border bg-gray-50 border-gray-300 rounded-lg p-3 sm:flex flex-col justify-center items-start">
         <p className="text-lg font-medium text-ـDarkblue_hover">CPU</p>
         <hr className="border-gray-300 w-full my-4" />
         <div className="flex flex-col flex-wrap h-64">
-          {renderCheckbox("Apple")}
-          {renderCheckbox("Lenova")}
+          {CPUs.map((CPU, index) => (
+            <Checkbox key={index} id={index} value={CPU} />
+          ))}
         </div>
       </div>
       <div className="check hidden sm:flex items-center bg-gray-50 px-5 py-4 border border-gray-300 rounded-lg gap-12">

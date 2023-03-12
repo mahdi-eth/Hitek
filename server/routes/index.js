@@ -20,3 +20,8 @@ exports.products = router.get(
     "/products",
     require("../controller/fetchProducts").getProducts
 );
+
+exports.filters = router.get(
+    "/filters",
+    require("../controller/fetchFilters").getFilters
+);
