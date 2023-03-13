@@ -1,5 +1,5 @@
 const bcrypt = require("bcrypt");
-const { User } = require("../../../model/user");
+const User = require("../../../model/user");
 
 const handleUserSignup = async (req, res) => {
     const { name, email, password, termsAndConditions } = req.body;
@@ -14,9 +14,10 @@ const handleUserSignup = async (req, res) => {
         return res.status(400).json({ message: "Name must be provided!" });
     }
     if (!termsAndConditions) {
-        return res.status(400).json({ message: "termsAndConditions must be checked!" });
+        return res
+            .status(400)
+            .json({ message: "termsAndConditions must be checked!" });
     }
-
 
     const isDuplicate = await User.findOne({ email });
     if (isDuplicate) {

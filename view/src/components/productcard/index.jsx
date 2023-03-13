@@ -1,9 +1,24 @@
 import React, { useState } from "react";
 import { AiFillStar } from "react-icons/ai";
 import { PropTypes } from "prop-types";
+import Cookies from "js-cookie";
+import { toast } from "react-toastify";
+import { sendProductToBaketService } from "@/api";
 
-export const ProductCard = ({ image, name, price, score }) => {
+export const ProductCard = ({ image, name, price, score, id }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
+
+  const handleBuy = () => {
+    const hasToken = Cookies.get("hitekAuthToken");
+
+    if (hasToken) {
+      sendProductToBaketService({ id, token: hasToken }).then((res) => {
+        toast.success(res.message);
+      });
+    } else {
+      toast.info("You must sign up first.");
+    }
+  };
 
   return (
     <div className="w-full flex flex-col items-center justify-center min-h-400 gap-8 py-7 rounded-lg overflow-hidden shadow-lg bg-green-50">
@@ -36,7 +51,10 @@ export const ProductCard = ({ image, name, price, score }) => {
         alt={name}
         onLoad={() => setImageLoaded(true)}
       />
-      <div className={`text-ـDarkblue mb-2 text-lg ${!imageLoaded ? "hidden" : ""}`}>
+      <div
+        className={`text-ـDarkblue mb-2 text-lg ${
+          !imageLoaded ? "hidden" : ""
+        }`}>
         {name}
       </div>
       <div
@@ -50,6 +68,7 @@ export const ProductCard = ({ image, name, price, score }) => {
         </div>
       </div>
       <button
+        onClick={handleBuy}
         className={`bg-primary hover:bg-primary_hover text-white py-2 px-12 sm:px-8 lg:px-12 xl:px-20 rounded-lg ${
           !imageLoaded ? "hidden" : ""
         }`}>
@@ -63,5 +82,6 @@ ProductCard.propTypes = {
   image: PropTypes.string,
   name: PropTypes.string,
   price: PropTypes.number,
+  id: PropTypes.string,
   score: PropTypes.number
 };

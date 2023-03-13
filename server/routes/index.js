@@ -35,3 +35,8 @@ exports.headerFilter = router.post(
     "/filterHeader",
     require("../controller/headerFilter").filterHeader
 );
+
+exports.addToBasket = router.post(
+    "/basket",
+    require("../controller/addToBasket").addToBasket
+);
