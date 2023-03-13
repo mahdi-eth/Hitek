@@ -8,7 +8,7 @@ export const Dropdown = ({ value }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [brandsToShow, setBrandsToShow] = useState([]);
   const [brandToFilter, setBrandToFilter] = useState("");
-  const { products, setProducts } = useProducts();
+  const { setProducts } = useProducts();
   const dropdownRef = useRef();
 
   const navigate = useNavigate();
@@ -16,13 +16,12 @@ export const Dropdown = ({ value }) => {
 
   if (brandToFilter) {
     filterByHeaderService({ brand: brandToFilter, type: value }).then((res) => {
+      setProducts(res);
       if (path !== "/all-products") {
         navigate("/all-products");
       }
-      console.log(res);
-      console.log(products);
-      return setProducts(res);
     });
+    setBrandToFilter(null);
   }
 
   const toggleDropdown = () => {

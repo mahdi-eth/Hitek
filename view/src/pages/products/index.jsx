@@ -10,7 +10,9 @@ export function Products() {
   const [productsPerPage] = useState(9);
 
   useEffect(() => {
-    getProductsService().then((res) => setProducts([...res.products]));
+    if (!products) {
+      getProductsService().then((res) => setProducts([...res.products]));
+    }
   }, []);
 
   const indexOfLastProduct = currentPage * productsPerPage;
