@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Checkbox } from "@/components";
 import { AiOutlineSearch } from "react-icons/ai";
 import { getFiltersService, postFiltersDataService } from "@/api";
-import PropTypes from "prop-types";
+import { useProducts } from "@/context";
 
-export const Filters = ({ setProducts }) => {
+export const Filters = () => {
   const [brands, setBrands] = useState([]);
+  const { setProducts } = useProducts();
   const [CPUs, setCPUs] = useState([]);
   const [availableProducts, setAvailableProducts] = useState(false);
   const [selectedBrands, setSelectedBrands] = useState(
@@ -152,8 +153,4 @@ export const Filters = ({ setProducts }) => {
       </button>
     </div>
   );
-};
-
-Filters.propTypes = {
-  setProducts: PropTypes.func
 };

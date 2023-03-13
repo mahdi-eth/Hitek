@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Header } from "@/layout";
 import { ProductCard, FilterButton, Filters } from "@/components";
 import { getProductsService } from "@/api";
+import { useProducts } from "@/context";
 
 export function Products() {
-  const [products, setProducts] = useState([]);
+  const { products, setProducts } = useProducts();
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(9);
 
@@ -53,9 +54,9 @@ export function Products() {
     <div className="container mx-auto lg:minmin-w-fit md:px-20 sm:px-16 px-8">
       <Header />
       <section className="mt-12 flex flex-col sm:flex-row gap-4">
-        <FilterButton setProducts={setProducts} />
+        <FilterButton />
         <div className="left-side">
-          <Filters setProducts={setProducts} />
+          <Filters />
         </div>
         <div className="right-side w-full">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center gap-5">

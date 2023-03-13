@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Checkbox } from "@/components";
 import { AiOutlineSearch } from "react-icons/ai";
 import { getFiltersService, postFiltersDataService } from "@/api";
-import { PropTypes } from "prop-types";
+import { useProducts } from "@/context";
 
-export const FilterButton = ({ setProducts }) => {
+export const FilterButton = () => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const { setProducts } = useProducts();
   const [brands, setBrands] = useState([]);
   const [CPUs, setCPUs] = useState([]);
   const [availableProducts, setAvailableProducts] = useState(false);
@@ -150,7 +151,7 @@ export const FilterButton = ({ setProducts }) => {
           </div>
         </div>
       )}
-            <div className="search-bar border bg-gray-50 border-gray-300 rounded-lg p-3 flex sm:hidden flex-col justify-center items-start">
+      <div className="search-bar border bg-gray-50 border-gray-300 rounded-lg p-3 flex sm:hidden flex-col justify-center items-start">
         <p className="text-lg font-medium text-ـDarkblue_hover">
           Search in products:
         </p>
@@ -170,8 +171,4 @@ export const FilterButton = ({ setProducts }) => {
       </div>
     </>
   );
-};
-
-FilterButton.propTypes = {
-  setProducts: PropTypes.func
 };

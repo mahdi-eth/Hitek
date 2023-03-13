@@ -2,11 +2,13 @@ import { PropTypes } from "prop-types";
 import { useState, React, useEffect, useRef } from "react";
 import { getHeaderBrandsService, filterByHeaderService } from "@/api";
 import { useNavigate } from "react-router-dom";
+import { useProducts } from "@/context";
 
 export const Dropdown = ({ value }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [brandsToShow, setBrandsToShow] = useState([]);
   const [brandToFilter, setBrandToFilter] = useState("");
+  const { products, setProducts } = useProducts();
   const dropdownRef = useRef();
 
   const navigate = useNavigate();
@@ -18,6 +20,8 @@ export const Dropdown = ({ value }) => {
         navigate("/all-products");
       }
       console.log(res);
+      console.log(products);
+      return setProducts(res);
     });
   }
 

@@ -16,10 +16,7 @@ const postFilters = async (req, res) => {
                 query.available = true;
             }
             if (search) {
-                query.$or.push(
-                    { name: { $regex: new RegExp(search, "i") } },
-                    { description: { $regex: new RegExp(search, "i") } }
-                );
+                query.$or.push({ name: { $regex: new RegExp(search, "i") } });
             }
         }
         const projection = {
