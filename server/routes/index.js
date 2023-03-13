@@ -40,3 +40,8 @@ exports.addToBasket = router.post(
     "/basket",
     require("../controller/addToBasket").addToBasket
 );
+
+exports.contactus = router.post(
+    "/contactus",
+    require("../controller/contactus").handleContactus
+);

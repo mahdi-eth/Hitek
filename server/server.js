@@ -29,6 +29,7 @@ server.use("/api", require("./routes").products);
 server.use("/api", require("./routes").filters);
 server.use("/api", require("./routes").headerFilter);
 server.use("/api", require("./routes").addToBasket);
+server.use("/api", require("./routes").contactus);
 
 server.listen(process.env.PORT || 3000, () =>
     console.log(

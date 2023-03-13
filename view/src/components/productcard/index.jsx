@@ -12,9 +12,13 @@ export const ProductCard = ({ image, name, price, score, id }) => {
     const hasToken = Cookies.get("hitekAuthToken");
 
     if (hasToken) {
-      sendProductToBaketService({ id, token: hasToken }).then((res) => {
-        toast.success(res.message);
-      });
+      sendProductToBaketService({ id, token: hasToken })
+        .then((res) => {
+          toast.success(res.message);
+        })
+        .catch((err) => {
+          toast.error(err.message);
+        });
     } else {
       toast.info("You must sign up first.");
     }

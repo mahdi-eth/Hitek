@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
+import Cookies from "js-cookie";
+import { contactUsService } from "@/api";
+import { toast } from "react-toastify";
 
 const schema = Yup.object().shape({
   name: Yup.string().required("Name is required"),
@@ -42,9 +45,17 @@ export const ContactForm = () => {
     resolver: yupResolver(schema)
   });
 
-  // Todo
   const onSubmit = (data) => {
-    console.log(data);
+    const hasToken = Cookies.get("hitekAuthToken");
+    if (hasToken) {
+      contactUsService({ data, token: hasToken }).then((res) => {
+        toast.success(res.message);
+      }).catch((err) => {
+        toast.error(err.message);
+      })
+    } else {
+      toast.info("You must sign up first.");
+    }
   };
 
   return (
