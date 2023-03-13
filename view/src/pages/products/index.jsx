@@ -61,47 +61,54 @@ export function Products() {
           <Filters />
         </div>
         <div className="right-side w-full">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center gap-5">
-            {currentProducts.map((product) => (
-              <ProductCard
-                key={product._id}
-                image={product.image}
-                name={product.name}
-                price={product.price}
-                score={product.rating}
-              />
-            ))}
-          </div>
-          <div className="flex justify-center my-8 w-full">
-            <nav>
-              <ul className="pagination flex gap-3">
-                <li className="page-item">
-                  <button className="page-link" onClick={goToPrevPage}>
-                    &laquo;
-                  </button>
-                </li>
-                {pageNumbers.map((number) => (
-                  <li key={number} className="page-item">
-                    <a
-                      href="#"
-                      className={`page-link ${
-                        currentPage === number
-                          ? "bg-blue-500 rounded-lg py-2 px-3 text-white"
-                          : "bg-white py-2 px-3 text-gray-800"
-                      } `}
-                      onClick={() => setCurrentPage(number)}>
-                      {number}
-                    </a>
+          {currentProducts.length === 0 ? (
+            <div className="text-center text-gray-500 mt-8">Nothing found.</div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center gap-5">
+              {currentProducts.map((product) => (
+                <ProductCard
+                  key={product._id}
+                  image={product.image}
+                  name={product.name}
+                  price={product.price}
+                  score={product.rating}
+                />
+              ))}
+            </div>
+          )}
+
+          {products.length > 9 && (
+            <div className="flex justify-center my-8 w-full">
+              <nav>
+                <ul className="pagination flex gap-3">
+                  <li className="page-item">
+                    <button className="page-link" onClick={goToPrevPage}>
+                      &laquo;
+                    </button>
                   </li>
-                ))}
-                <li className="page-item">
-                  <button className="page-link" onClick={goToNextPage}>
-                    &raquo;
-                  </button>
-                </li>
-              </ul>
-            </nav>
-          </div>
+                  {pageNumbers.map((number) => (
+                    <li key={number} className="page-item">
+                      <a
+                        href="#"
+                        className={`page-link ${
+                          currentPage === number
+                            ? "bg-blue-500 rounded-lg py-2 px-3 text-white"
+                            : "bg-white py-2 px-3 text-gray-800"
+                        } `}
+                        onClick={() => setCurrentPage(number)}>
+                        {number}
+                      </a>
+                    </li>
+                  ))}
+                  <li className="page-item">
+                    <button className="page-link" onClick={goToNextPage}>
+                      &raquo;
+                    </button>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          )}
         </div>
       </section>
     </div>
