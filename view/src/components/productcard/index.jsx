@@ -36,15 +36,15 @@ export const ProductCard = ({ image, name, price, score }) => {
         alt={name}
         onLoad={() => setImageLoaded(true)}
       />
-      <div className={`text-ـDarkblue mb-2 ${!imageLoaded ? "hidden" : ""}`}>
+      <div className={`text-ـDarkblue mb-2 text-lg ${!imageLoaded ? "hidden" : ""}`}>
         {name}
       </div>
       <div
         className={`flex justify-center gap-4 items-center mb-2 ${
           !imageLoaded ? "hidden" : ""
         }`}>
-        <div className="text-black opacity-75">{price}$</div>
-        <div className="flex items-center text-black opacity-75">
+        <div className="text-black opacity-75 text-lg">{price}$</div>
+        <div className="flex items-center text-black opacity-75 text-lg">
           <AiFillStar className="text-yellow-400" />
           {score}
         </div>

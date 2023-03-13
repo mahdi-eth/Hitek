@@ -10,6 +10,7 @@ export const Filters = ({ setProducts }) => {
   const [availableProducts, setAvailableProducts] = useState(false);
   const [selectedBrands, setSelectedBrands] = useState([]);
   const [selectedCPUs, setSelectedCPUs] = useState([]);
+  const [search, setSearch] = useState([]);
 
   const handleBrandChange = (event) => {
     const { value, checked } = event.target;
@@ -33,11 +34,18 @@ export const Filters = ({ setProducts }) => {
     });
   };
 
+  const updateSearchBar = (event) => {
+    setTimeout(() => {
+      setSearch(event.target.value);
+    }, 1000);
+  };
+
   const filter = () => {
     postFiltersDataService([
       selectedBrands,
       selectedCPUs,
-      availableProducts
+      availableProducts,
+      search
     ]).then((res) => {
       setProducts(res);
     });
@@ -52,7 +60,7 @@ export const Filters = ({ setProducts }) => {
 
   return (
     <div className="flex flex-col gap-5 w-full sm:max-w-270">
-      <div className="search-bar border bg-gray-50 border-gray-300 rounded-lg p-3 flex flex-col justify-center items-start">
+      <div className="search-bar border hidden sm:flex bg-gray-50 border-gray-300 rounded-lg p-3 flex-col justify-center items-start">
         <p className="text-lg font-medium text-ـDarkblue_hover">
           Search in products:
         </p>
@@ -63,9 +71,10 @@ export const Filters = ({ setProducts }) => {
             className="absolute left-3 text-gray-400"
           />
           <input
+            onChange={updateSearchBar}
             type="text"
             placeholder="Product Name..."
-            className="w-full bg-gray-100 px-2 pl-10 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+            className="search-input w-full bg-gray-100 px-2 pl-10 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
           />
         </div>
       </div>

@@ -11,6 +11,7 @@ export const FilterButton = ({ setProducts }) => {
   const [selectedBrands, setSelectedBrands] = useState([]);
   const [selectedCPUs, setSelectedCPUs] = useState([]);
   const [availableProducts, setAvailableProducts] = useState(false);
+  const [search, setSearch] = useState([]);
 
   const renderCheckbox = (items, onChangeHandler) => {
     return items.map((item, index) => (
@@ -45,6 +46,13 @@ export const FilterButton = ({ setProducts }) => {
     });
   };
 
+  const updateSearchBar = (event) => {
+    setTimeout(() => {
+      console.log(search);
+      setSearch(event.target.value);
+    }, 1000);
+  };
+
   useEffect(() => {
     getFiltersService().then((res) => {
       setBrands(res.brands);
@@ -56,7 +64,8 @@ export const FilterButton = ({ setProducts }) => {
     postFiltersDataService([
       selectedBrands,
       selectedCPUs,
-      availableProducts
+      availableProducts,
+      search
     ]).then((res) => {
       setProducts(res);
     });
@@ -128,6 +137,24 @@ export const FilterButton = ({ setProducts }) => {
           </div>
         </div>
       )}
+            <div className="search-bar border bg-gray-50 border-gray-300 rounded-lg p-3 flex flex-col justify-center items-start">
+        <p className="text-lg font-medium text-ـDarkblue_hover">
+          Search in products:
+        </p>
+        <hr className="border-gray-300 w-full my-4" />
+        <div className="relative flex items-center w-full">
+          <AiOutlineSearch
+            size={24}
+            className="absolute left-3 text-gray-400"
+          />
+          <input
+            onChange={updateSearchBar}
+            type="text"
+            placeholder="Product Name..."
+            className="search-input w-full bg-gray-100 px-2 pl-10 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+          />
+        </div>
+      </div>
     </>
   );
 };
