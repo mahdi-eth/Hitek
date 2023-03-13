@@ -8,10 +8,28 @@ export const FilterButton = ({ setProducts }) => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [brands, setBrands] = useState([]);
   const [CPUs, setCPUs] = useState([]);
-  const [selectedBrands, setSelectedBrands] = useState([]);
-  const [selectedCPUs, setSelectedCPUs] = useState([]);
   const [availableProducts, setAvailableProducts] = useState(false);
-  const [search, setSearch] = useState([]);
+  const [selectedBrands, setSelectedBrands] = useState(
+    () => JSON.parse(localStorage.getItem("selectedBrands")) || []
+  );
+  const [selectedCPUs, setSelectedCPUs] = useState(
+    () => JSON.parse(localStorage.getItem("selectedCPUs")) || []
+  );
+  const [search, setSearch] = useState(
+    () => localStorage.getItem("search") || ""
+  );
+
+  useEffect(() => {
+    localStorage.setItem("selectedBrands", JSON.stringify(selectedBrands));
+  }, [selectedBrands]);
+
+  useEffect(() => {
+    localStorage.setItem("selectedCPUs", JSON.stringify(selectedCPUs));
+  }, [selectedCPUs]);
+
+  useEffect(() => {
+    localStorage.setItem("search", search);
+  }, [search]);
 
   const renderCheckbox = (items, onChangeHandler) => {
     return items.map((item, index) => (
@@ -48,7 +66,14 @@ export const FilterButton = ({ setProducts }) => {
 
   const updateSearchBar = (event) => {
     setTimeout(() => {
-      console.log(search);
+      postFiltersDataService([
+        selectedBrands,
+        selectedCPUs,
+        availableProducts,
+        search
+      ]).then((res) => {
+        setProducts(res);
+      });
       setSearch(event.target.value);
     }, 1000);
   };
@@ -80,25 +105,13 @@ export const FilterButton = ({ setProducts }) => {
       </button>
 
       {isFilterOpen && (
-        <div className="w-full h-full bg-blue-50 flex items-center justify-center z-50 overflow-scroll">
+        <div className="w-full h-full flex items-center justify-center z-50 overflow-scroll">
           <div className="p-4 text-center my-8 overflow-scroll">
             <div className="flex flex-col gap-5 w-full">
               <div className="brand border bg-gray-50 border-gray-300 rounded-lg p-3 flex flex-col justify-center items-start">
                 <p className="text-lg font-medium text-ـDarkblue_hover">
                   Brand
                 </p>
-                <hr className="border-gray-300 w-full my-4" />
-                <div className="relative flex items-center w-full">
-                  <AiOutlineSearch
-                    size={24}
-                    className="absolute left-3 text-gray-400"
-                  />
-                  <input
-                    type="text"
-                    placeholder="Search brand name..."
-                    className="w-full bg-gray-100 px-2 pl-10 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
-                  />
-                </div>
                 <hr className="border-gray-300 w-full my-4" />
                 <div className="flex flex-col flex-wrap h-64">
                   {renderCheckbox(brands, handleBrandChange)}
@@ -137,7 +150,7 @@ export const FilterButton = ({ setProducts }) => {
           </div>
         </div>
       )}
-            <div className="search-bar border bg-gray-50 border-gray-300 rounded-lg p-3 flex flex-col justify-center items-start">
+            <div className="search-bar border bg-gray-50 border-gray-300 rounded-lg p-3 flex sm:hidden flex-col justify-center items-start">
         <p className="text-lg font-medium text-ـDarkblue_hover">
           Search in products:
         </p>

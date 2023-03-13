@@ -3,18 +3,24 @@ const Products = require("../../model/products");
 const postFilters = async (req, res) => {
     const [brands, CPUs, isAvailable, search] = req.body;
     try {
-        const query = {
-            $or: [
-                { brand: { $in: brands } },
-                { "features.cpu": { $in: CPUs } }
-            ],
-            available: isAvailable || { $exists: true }
-        };
-        if (search) {
-            query.$or.push(
-                { name: { $regex: new RegExp(search, "i") } },
-                { description: { $regex: new RegExp(search, "i") } }
-            );
+        let query = {};
+        if (brands.length || CPUs.length || isAvailable || search) {
+            query.$or = [];
+            if (brands.length) {
+                query.$or.push({ brand: { $in: brands } });
+            }
+            if (CPUs.length) {
+                query.$or.push({ "features.cpu": { $in: CPUs } });
+            }
+            if (isAvailable) {
+                query.available = true;
+            }
+            if (search) {
+                query.$or.push(
+                    { name: { $regex: new RegExp(search, "i") } },
+                    { description: { $regex: new RegExp(search, "i") } }
+                );
+            }
         }
         const projection = {
             _id: 1,
