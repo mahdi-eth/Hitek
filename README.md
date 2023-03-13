@@ -29,4 +29,4 @@ This project is still in development mode and improvements are being made regula
 - [Mehdi Moazemitabar](https://github.com/mehdimoazemi)
 
 ## Author
-- Mahdi Ettehadnejad
+- [Mahdi Ettehadnejad](https://github.com/mahdi-Eth)
