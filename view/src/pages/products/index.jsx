@@ -10,7 +10,7 @@ export function Products() {
   const [productsPerPage] = useState(9);
 
   useEffect(() => {
-    if (!products) {
+    if (products.length == 0) {
       getProductsService().then((res) => setProducts([...res.products]));
     }
   }, []);
