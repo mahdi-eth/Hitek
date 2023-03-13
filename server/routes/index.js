@@ -30,3 +30,8 @@ exports.filters = router.post(
     "/filters",
     require("../controller/postFilters").postFilters
 );
+
+exports.headerFilter = router.post(
+    "/filterHeader",
+    require("../controller/headerFilter").filterHeader
+);

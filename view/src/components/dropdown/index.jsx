@@ -1,33 +1,33 @@
 import { PropTypes } from "prop-types";
 import { useState, React, useEffect, useRef } from "react";
-import { getHeaderBrandsService } from "@/api";
+import { getHeaderBrandsService, filterByHeaderService } from "@/api";
+import { useNavigate } from "react-router-dom";
 
 export const Dropdown = ({ value }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [brandsToShow, setBrandsToShow] = useState([]);
+  const [brandToFilter, setBrandToFilter] = useState("");
   const dropdownRef = useRef();
+
+  const navigate = useNavigate();
+  const path = window.location.pathname;
+
+  if (brandToFilter) {
+    filterByHeaderService({ brand: brandToFilter, type: value }).then((res) => {
+      if (path !== "/all-products") {
+        navigate("/all-products");
+      }
+      console.log(res);
+    });
+  }
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
   useEffect(() => {
-    function handleClickOutside(event) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsOpen(false);
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [dropdownRef]);
-
-  useEffect(() => {
     const type = { type: value.toLowerCase().slice(0, -1) };
-    getHeaderBrandsService(type)
-      .then((res) => setBrandsToShow(res.brands))
-      .catch((error) => console.log(error));
+    getHeaderBrandsService(type).then((res) => setBrandsToShow(res.brands));
   }, []);
 
   return (
@@ -44,7 +44,11 @@ export const Dropdown = ({ value }) => {
           viewBox="0 0 20 20"
           fill="currentColor"
           aria-hidden="true">
-          <path fillRule="evenodd" d="M10 14l6-6H4z" />
+          {isOpen ? (
+            <path fillRule="evenodd" d="M10 6l6 6H4z" />
+          ) : (
+            <path fillRule="evenodd" d="M10 14l6-6H4z" />
+          )}
         </svg>
       </button>
 
@@ -56,13 +60,16 @@ export const Dropdown = ({ value }) => {
             aria-orientation="vertical"
             aria-labelledby="options-menu">
             {brandsToShow.map((brand) => (
-              <a
-                href="#"
-                className="block px-4 py-2 z-10 text-sm text-_Gray hover:bg-gray-100 hover:text-gray-900"
+              <div
+                onClick={() => {
+                  setBrandToFilter(brand);
+                  setIsOpen(false);
+                }}
+                className="block px-4 py-2 cursor-pointer text-sm text-_Gray hover:bg-gray-100 hover:text-gray-900"
                 role="menuitem"
                 key={brand}>
                 {brand}
-              </a>
+              </div>
             ))}
           </div>
         </div>

@@ -5,7 +5,7 @@ import logo from "@/assets/images/logo/logo.svg";
 import { Dropdown } from "@/components";
 import { FaUserCircle } from "react-icons/fa";
 
-export function Header() {
+export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
   const cookies = Cookies.get("hitekAuthToken");
@@ -138,4 +138,4 @@ export function Header() {
       <hr className="border-gray-300 w-full sm:mt-4 mt-0" />
     </nav>
   );
-}
+};
