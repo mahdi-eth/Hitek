@@ -32,7 +32,7 @@ export const Header = () => {
           onClick={() => setIsOpen(true)}
           data-collapse-toggle="navbar-dropdown"
           type="button"
-          className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 "
           aria-controls="navbar-dropdown"
           aria-expanded="false">
           <span className="sr-only">Open main menu</span>
@@ -51,7 +51,7 @@ export const Header = () => {
         {isOpen && (
           <ul
             ref={dropdownRef}
-            className="sub-menu flex md:hidden transform duration-1000 z-10 flex-col text-center justify-center fixed top-0 left-0 w-full items-center bg-gray-50 dark:bg-gray-80 dark:border-gray-700 transition-all">
+            className="sub-menu flex md:hidden transform duration-1000 z-10 flex-col text-center justify-center fixed top-0 left-0 w-full items-center bg-gray-50 transition-all">
             <li className="w-full pb-2 font-semibold py-4 bg-white text-_Gray border-b border-gray-300">
               <Link
                 to="/"
@@ -93,11 +93,11 @@ export const Header = () => {
           </ul>
         )}
         <div className="hidden w-full md:block md:w-auto" id="navbar-dropdown">
-          <ul className="flex items-center text-_Gray py-4 lg:px-4 mt-4 border border-gray-100 bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <ul className="flex items-center text-_Gray py-4 lg:px-4 mt-4 border border-gray-100 bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white">
             <li>
               <Link
                 to="/"
-                className="block pt-2 py-2 text-_Gray border-b-2 border-white hover:border-primary md:bg-transparent md:dark:text-white dark:bg-blue-600 md:dark:bg-transparent"
+                className="block pt-2 py-2 text-_Gray border-b-2 border-white hover:border-primary md:bg-transparent"
                 aria-current="page">
                 Home
               </Link>

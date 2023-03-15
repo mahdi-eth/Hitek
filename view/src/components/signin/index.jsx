@@ -74,7 +74,7 @@ export const SigninComponent = () => {
           <div className="mb-6">
             <label
               htmlFor="email"
-              className="block mb-2 text-sm font-medium text-_Gray dark:text-white">
+              className="block mb-2 text-sm font-medium text-_Gray">
               Email address*
             </label>
             <input
@@ -82,7 +82,7 @@ export const SigninComponent = () => {
               type="text"
               {...register("email")}
               id="email"
-              className="shadow-sm px-5 bg-white py-3 border border-gray-300 text-_Gray text-sm rounded-lg focus-visible:outline-primary focus-visible:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus-visible:outline-primary dark:focus-visible:border-blue-500 dark:shadow-sm-light"
+              className="shadow-sm px-5 bg-white py-3 border border-gray-300 text-_Gray text-sm rounded-lg focus-visible:outline-primary focus-visible:border-blue-500 block w-full p-2.5 "
               placeholder="Enter email address"
             />
             {errors.email && (
@@ -95,7 +95,7 @@ export const SigninComponent = () => {
           <div className="mb-6">
             <label
               htmlFor="password"
-              className="block mb-2 text-sm font-medium text-_Gray dark:text-white">
+              className="block mb-2 text-sm font-medium text-_Gray">
               Password*
             </label>
             <input
@@ -104,7 +104,7 @@ export const SigninComponent = () => {
               id="password"
               {...register("password")}
               placeholder="Enter password"
-              className="shadow-sm px-5 bg-white py-3 border border-gray-300 text-_Gray text-sm rounded-lg focus-visible:outline-primary focus-visible:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus-visible:outline-primary dark:focus-visible:border-blue-500 dark:shadow-sm-light"
+              className="shadow-sm px-5 bg-white py-3 border border-gray-300 text-_Gray text-sm rounded-lg focus-visible:outline-primary focus-visible:border-blue-500 block w-full p-2.5 "
             />
             {errors.password && (
               <p className="text-red-500 text-xs mt-1 text-left">
@@ -120,11 +120,11 @@ export const SigninComponent = () => {
                 autoComplete="none"
                 id="terms"
                 type="checkbox"
-                className="w-4 h-4 border px-5 cursor-pointer border-gray-300 rounded-lg bg-white py-3 focus-visible:ring-3 focus-visible:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus-visible:ring-blue-600 dark:ring-offset-gray-800 dark:focus-visible:ring-offset-gray-800"
+                className="w-4 h-4 border px-5 cursor-pointer border-gray-300 rounded-lg bg-white py-3 focus-visible:ring-3 focus-visible:ring-blue-300 "
               />
               <label
                 htmlFor="terms"
-                className="ml-2 cursor-pointer text-sm font-medium text-_Gray dark:text-gray-300">
+                className="ml-2 cursor-pointer text-sm font-medium text-_Gray ">
                 Keep me sign in
               </label>
             </div>
