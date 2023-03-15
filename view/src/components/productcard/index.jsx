@@ -3,9 +3,12 @@ import { AiFillStar } from "react-icons/ai";
 import { PropTypes } from "prop-types";
 import Cookies from "js-cookie";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 import { sendProductToBaketService } from "@/api";
+import { useProductId } from "@/context";
 
 export const ProductCard = ({ image, name, price, score, id }) => {
+  const { setProductId } = useProductId();
   const [imageLoaded, setImageLoaded] = useState(false);
 
   const handleBuy = () => {
@@ -24,8 +27,19 @@ export const ProductCard = ({ image, name, price, score, id }) => {
     }
   };
 
+  const navigate = useNavigate()
+
+  const handleCardClick = (e) => {
+    if (e.target.innerText != "Buy") {
+      setProductId(id)
+      navigate("/product")
+    }
+  };
+
   return (
-    <div className="w-full flex flex-col items-center justify-center min-h-400 gap-8 py-7 rounded-lg overflow-hidden shadow-lg bg-green-50">
+    <div
+      className="w-full flex flex-col items-center justify-center min-h-400 gap-8 py-7 rounded-lg overflow-hidden shadow-lg bg-green-50"
+      onClick={handleCardClick}>
       {!imageLoaded && (
         <div role="status">
           <svg
