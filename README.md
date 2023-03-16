@@ -1,5 +1,5 @@
 # Hitek Shop
-A complete e-commerce web application that sells various products. It is just a showcase website, not meant to sell products in real life. It has a responsive design and features everything a complete shop website would have.
+A complete e-commerce web application that sells technology products. It is just a showcase website, not meant to sell products in real life. It has a responsive design and features everything a complete shop website would have.
 
 ## Technologies Used
 - Frontend: React, Tailwind CSS
@@ -29,4 +29,4 @@ This project is still in development mode and improvements are being made regula
 - [Mehdi Moazemitabar](https://github.com/mehdimoazemi)
 
 ## Author
-- Mahdi Ettehadnejad
+- [Mahdi Ettehadnejad](https://github.com/mahdi-Eth)

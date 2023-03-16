@@ -27,7 +27,8 @@ module.exports = {
         270: "270px"
       },
       minHeight: {
-        140: "140px"
+        140: "140px",
+        400: "400px"
       },
       maxHeight: {
         140: "140px"

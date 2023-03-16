@@ -22,7 +22,6 @@ import AsusZenbook from "@/assets/images/homeImg/AsusZenbook.svg";
 import AudioTechnica from "@/assets/images/homeImg/AudioTechnica.svg";
 import SK from "@/assets/images/homeImg/SK.svg";
 import modena from "@/assets/images/homeImg/modena.svg";
-import { ProductcomparisonHome } from "@//components"
 
 
 export function HomePage() {
@@ -199,7 +198,6 @@ export function HomePage() {
             <div className="mt-14 text-center">
                 <span className="mt-14 text-primary font-bold text-base ">See full Leaderboards</span>
             </div>
-            <ProductcomparisonHome />
         </div>
     )
 }

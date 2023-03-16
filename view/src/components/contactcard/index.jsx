@@ -15,20 +15,20 @@ export const ContactCard = ({ icon, title, text, link, linkText }) => {
   const contactUsClasses = "flex flex-col items-center ";
   return (
     <div className="container min-w-max text-center">
-      <div className="max-w-sm flex flex-col gap-3 items-center bg-white dark:bg-gray-800 dark:border-gray-700">
+      <div className="max-w-sm flex flex-col gap-3 items-center bg-white">
         <a
           className={
             link != "#" ? contactUsClasses : contactUsClasses + "cursor-default"
           }
           href={"https://" + link}>
           <img src={icon} alt="contact us icon" />
-          <h5 className="mt-3 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+          <h5 className="mt-3 text-2xl font-semibold tracking-tight text-gray-900">
             {title}
           </h5>
         </a>
-        <p className="font-normal text-gray-500 dark:text-gray-400">{text}</p>
+        <p className="font-normal text-gray-500 ">{text}</p>
         {link == "#" && (
-          <p className="font-normal text-blue-500 dark:text-blue-400">
+          <p className="font-normal text-blue-500 ">
             {linkText}
           </p>
         )}

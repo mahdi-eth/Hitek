@@ -1,26 +1,37 @@
-import { checkPropTypes } from "prop-types";
+import { PropTypes } from "prop-types";
 import { useState, React, useEffect, useRef } from "react";
+import { getHeaderBrandsService, filterByHeaderService } from "@/api";
+import { useNavigate } from "react-router-dom";
+import { useProducts } from "@/context";
 
 export const Dropdown = ({ value }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [brandsToShow, setBrandsToShow] = useState([]);
+  const [brandToFilter, setBrandToFilter] = useState("");
+  const { setProducts } = useProducts();
   const dropdownRef = useRef();
+
+  const navigate = useNavigate();
+  const path = window.location.pathname;
+
+  if (brandToFilter) {
+    filterByHeaderService({ brand: brandToFilter, type: value }).then((res) => {
+      setProducts(res);
+      if (path !== "/all-products") {
+        navigate("/all-products");
+      }
+    });
+    setBrandToFilter(null);
+  }
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
   useEffect(() => {
-    function handleClickOutside(event) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setIsOpen(false);
-      }
-    }
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [dropdownRef]);
+    const type = { type: value.toLowerCase().slice(0, -1) };
+    getHeaderBrandsService(type).then((res) => setBrandsToShow(res.brands));
+  }, []);
 
   return (
     <div className="relative inline-block text-left">
@@ -36,7 +47,11 @@ export const Dropdown = ({ value }) => {
           viewBox="0 0 20 20"
           fill="currentColor"
           aria-hidden="true">
-          <path fillRule="evenodd" d="M10 14l6-6H4z" />
+          {isOpen ? (
+            <path fillRule="evenodd" d="M10 6l6 6H4z" />
+          ) : (
+            <path fillRule="evenodd" d="M10 14l6-6H4z" />
+          )}
         </svg>
       </button>
 
@@ -47,24 +62,18 @@ export const Dropdown = ({ value }) => {
             role="menu"
             aria-orientation="vertical"
             aria-labelledby="options-menu">
-            <a
-              href="#"
-              className="block px-4 py-2 z-10 text-sm text-_Gray hover:bg-gray-100 hover:text-gray-900"
-              role="menuitem">
-              Dropdown 1
-            </a>
-            <a
-              href="#"
-              className="block px-4 py-2 z-10 text-sm text-_Gray hover:bg-gray-100 hover:text-gray-900"
-              role="menuitem">
-              Dropdown 2
-            </a>
-            <a
-              href="#"
-              className="block px-4 py-2 z-10 text-sm text-_Gray hover:bg-gray-100 hover:text-gray-900"
-              role="menuitem">
-              Dropdown 3
-            </a>
+            {brandsToShow.map((brand) => (
+              <div
+                onClick={() => {
+                  setBrandToFilter(brand);
+                  setIsOpen(false);
+                }}
+                className="block px-4 py-2 cursor-pointer text-sm text-_Gray hover:bg-gray-100 hover:text-gray-900"
+                role="menuitem"
+                key={brand}>
+                {brand}
+              </div>
+            ))}
           </div>
         </div>
       )}
@@ -73,6 +82,5 @@ export const Dropdown = ({ value }) => {
 };
 
 Dropdown.propTypes = {
-    value: checkPropTypes.string,
-  };
-  
+  value: PropTypes.string
+};
