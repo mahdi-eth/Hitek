@@ -7,4 +7,9 @@ export * from "./filters/index";
 export * from "./contactcard/index";
 export * from "./contactform/index";
 export * from './addToCartButton';
-export * from './RecommendedCart'
+export * from './RecommendedCart';
+export * from './searchInputHome';
+export * from './CategoriesHome';
+export * from './whyUsHomePage';
+export * from "./ProductsHomepage";
+export * from "./ProductcomparisonHome";

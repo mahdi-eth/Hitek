@@ -5,8 +5,10 @@ import {
   Signin,
   ProductPage,
   Products,
-  ContactUs
+  ContactUs,
+  HomePage
 } from "@/pages";
+
 
 export const routes = {
   LAUNCHSCREEN: {
@@ -36,5 +38,9 @@ export const routes = {
   CONTACTUS: {
     path: "/contact-us",
     element: <ContactUs />
+  },
+  HOME: {
+    path: "/home-page",
+    element: <HomePage />
   }
 };
