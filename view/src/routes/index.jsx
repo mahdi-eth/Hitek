@@ -9,11 +9,10 @@ import {
   HomePage
 } from "@/pages";
 
-
 export const routes = {
   LAUNCHSCREEN: {
     path: "/",
-    element: <Signup />
+    element: <HomePage />
   },
   PRODUCTPAGE: {
     path: "/product",
@@ -38,9 +37,5 @@ export const routes = {
   CONTACTUS: {
     path: "/contact-us",
     element: <ContactUs />
-  },
-  HOME: {
-    path: "/home-page",
-    element: <HomePage />
   }
 };
