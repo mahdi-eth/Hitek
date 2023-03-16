@@ -18,7 +18,7 @@ module.exports = {
         primary_hover: "#4f88d8",
         secondry_hover: "#eeb74a",
         ـDarkblue_hover: "#183B56",
-        _Gray_hover: "#183B56"
+        _Gray_hover: "#183B56",
       },
       minWidth: {
         360: "360px"
