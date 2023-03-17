@@ -22,6 +22,8 @@ import AsusZenbook from "@/assets/images/homeImg/AsusZenbook.svg";
 import AudioTechnica from "@/assets/images/homeImg/AudioTechnica.svg";
 import SK from "@/assets/images/homeImg/SK.svg";
 import modena from "@/assets/images/homeImg/modena.svg";
+import { CompareProduct } from "@/components"
+import katana from "@/assets/images/homeImg/katana.svg";
 
 
 export function HomePage() {
@@ -184,19 +186,49 @@ export function HomePage() {
                 />
                 <ProductsHomePage
                     image={SK}
-                    name="Asus Zenbook UX-430 US"
-                    rate="4,8"
-                    number="21K Total Reviews"
+                    name="SK II - Anti Aging Cream"
+                    rate="4,9"
+                    number="89K Total Reviews"
                 />
                 <ProductsHomePage
                     image={modena}
-                    name="Asus Zenbook UX-430 US"
+                    name="Modena Juice Blender"
                     rate="4,8"
-                    number="21K Total Reviews"
+                    number="871 Total Reviews"
                 />
             </div>
             <div className="mt-14 text-center">
                 <span className="mt-14 text-primary font-bold text-base ">See full Leaderboards</span>
+            </div>
+            <div className='flex mt-52'>
+                <h2 className='font-bold text-4xl text-_Gray  grow'>Compare the Product</h2>
+                <button className='w-52 h-11 rounded-3xl border-2 border-primary text-primary hover:bg-primary hover:text-white text-base font-bold  '> + New Comparison</button>
+            </div>
+            <div className="flex ">
+                <CompareProduct
+                    image={katana}
+                    name="Asus Zenbook Pro UX-430 US"
+                    CPU="Intel® Core™ i3 7100U Processor"
+                    OperatingSystem="Windows 10 Pro for business"
+                />
+                <CompareProduct
+                    image={katana}
+                    name="Lenovo Legion Y545 2018"
+                    CPU="Intel® Core™ i7 9100P Processor"
+                    OperatingSystem="Windows 10 Pro for business"
+                />
+                <CompareProduct
+                    image={katana}
+                    name="Acer Swift Air SF-313 51"
+                    CPU="Intel® Core™ i3 7100U Processor"
+                    OperatingSystem="Intel® Core™ i3 7100X Processor"
+                />
+                <CompareProduct
+                    image={katana}
+                    name="Lenovo Thinkpad Y51X1 2019"
+                    CPU="Intel® Core™ i3 7100U Processor"
+                    OperatingSystem="Intel® Core™ i5 8000C Processor"
+                />
             </div>
         </div>
     )
