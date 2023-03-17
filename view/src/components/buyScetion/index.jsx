@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import iphone13 from "@/assets/images/productImg/iphone13promax.jpg";
 import { BsFillShareFill } from "react-icons/bs";
@@ -13,7 +13,12 @@ import { AddToCartButton } from "@/components";
 import { getSingleProductService } from '../../api/services/fetchSingleProduct';
 export const BuySection = () => {
 
-getSingleProductService()
+
+useEffect(() => {
+  getSingleProductService()
+
+}, [])
+
   
     return ( 
       <>

@@ -47,6 +47,6 @@ exports.contactus = router.post(
 );
 
 exports.singleProduct=router.post(
-    '/single-product',
-    require('../controller/fetchSingleProduct').fetchSingleProduct
+    '/Product',
+    require('../controller/fetchSingleProduct').fetchProduct
 )

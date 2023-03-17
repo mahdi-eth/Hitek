@@ -1,14 +1,10 @@
 const products = require("../../model/products");
 
-const fetchSingleProduct =async (_, res) => {
-
-  const product = await products.find(
-    {},
-    { name: 1, image: 1, price: 1, rating: 1 }
-).lean();
-res.json({ product });
-};
+const fetchProduct =async (req, res) => {
+  const singleproduct= await products.findById('640cf37871a98b0151ed6b8a',{})
+ res.json({singleproduct})
+}
 
 module.exports = {
-  fetchSingleProduct,
-};
+  fetchProduct,
+}
