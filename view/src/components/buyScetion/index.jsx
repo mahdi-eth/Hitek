@@ -10,7 +10,11 @@ import { IoIosPricetags } from "react-icons/io";
 // import { Link } from "react-router-dom";
 import miniIcom from "@/assets/images/icons/seller.png";
 import { AddToCartButton } from "@/components";
+import { getSingleProductService } from '../../api/services/fetchSingleProduct';
 export const BuySection = () => {
+
+getSingleProductService()
+  
     return ( 
       <>
           <div

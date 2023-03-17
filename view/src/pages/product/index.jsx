@@ -9,9 +9,14 @@ import {
 } from "@/components";
 
 export function ProductPage() {
+
+
+
+  
+
   return (
     <div className="py-10">
-      <div className="container mx-auto lg:minmin-w-fit md:px-20  sm:mx-auto mb-7">
+      <div className="container mx-auto lg:minmin-w-fit md:px-20 sm:px-16 px-8">
         <Header />
         <p className="mt-5 p-3">
           <Link to="/">Home</Link> / <Link>iPhone</Link> /{" "}
