@@ -24,6 +24,7 @@ import SK from "@/assets/images/homeImg/SK.svg";
 import modena from "@/assets/images/homeImg/modena.svg";
 import { CompareProduct } from "@/components"
 import katana from "@/assets/images/homeImg/katana.svg";
+import { SearchHome } from "@/components"
 
 
 export function HomePage() {
@@ -225,11 +226,12 @@ export function HomePage() {
                 />
                 <CompareProduct
                     image={katana}
-                    name="Lenovo Thinkpad Y51X1 2019"
+                    name="Lenovo Thinkpad Y51X1"
                     CPU="Intel® Core™ i3 7100U Processor"
                     OperatingSystem="Intel® Core™ i5 8000C Processor"
                 />
             </div>
+            <SearchHome />
         </div>
     )
 }

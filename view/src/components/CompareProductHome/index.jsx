@@ -6,7 +6,7 @@ import CompactDisk from "../../assets/images/homeImg/CompactDisk.svg"
 export function CompareProduct({ image, name, CPU, OperatingSystem }) {
     return (
         <div className='mt-32 w-full'>
-            <div className='w-64 mt-32'>
+            <div className='w-64 '>
                 <div className=''>
                     <img className='ml-10 mt-14' src={image} alt="Asus Zenbook ProUX-430 US" />
                     <h3 className='w-32 ml-16  mt-4 text-_Gray font-bold text-base  text-center'>{name}</h3>
