@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
-import iphone13 from "@/assets/images/productImg/iphone13promax.jpg";
 import { BsFillShareFill } from "react-icons/bs";
 import { CiHeart } from "react-icons/ci";
 import { MdOutlineStackedLineChart } from "react-icons/md";
@@ -10,21 +9,27 @@ import { IoIosPricetags } from "react-icons/io";
 // import { Link } from "react-router-dom";
 import miniIcom from "@/assets/images/icons/seller.png";
 import { AddToCartButton } from "@/components";
-import { getSingleProductService } from "../../api/services/fetchSingleProduct";
+import { getSingleProductService} from "../../api/services/fetchSingleProduct";
 import { useProductId } from "../../context/productId";
 
 export const BuySection = () => {
   const { productId } = useProductId();
+  const [ProductData, setProductData] = useState({})
 
   useEffect(() => {
     getSingleProductService(productId).then((res)=>{
-      const product=res.singleproduct
-      console.log(product.brand);
+      const singleProductData=res.singleproduct
+      setProductData(singleProductData)
     })
   }, []);
-
+  console.log(ProductData);
+  
   return (
     <>
+        <div className="font-semibold mx-auto pt-7 flex justify-center p-6">
+        {ProductData.brand} {ProductData.name}
+          capacity 256 GB
+        </div>
       <div
         className="flex flex-row flex-wrap  sm:items-center"
         id="product-section">
@@ -39,7 +44,7 @@ export const BuySection = () => {
               height: "310px",
               width: "230px"
             }}
-            src={iphone13}
+            src={ProductData.image}
             alt="product-image"
           />
         </div>
@@ -47,7 +52,7 @@ export const BuySection = () => {
         <div className=" flex flex-col p-5 gap-3">
           <div className="flex">
             <p className="text-xs opacity-50">
-              Apple iPhone 12 Pro Max A2412 Dual SIM 256GB Mobile Phone
+              {ProductData.brand} {ProductData.name} 
             </p>
           </div>
           <div className="flex text-xs  gap-4 align-middle">
@@ -55,7 +60,7 @@ export const BuySection = () => {
 
             <p>89% of buyers have suggested this product</p>
             <div id="rate" className="flex font-bold">
-              4.6
+              {ProductData.rating}
               <FaStar color="gold" size={14} />
             </div>
           </div>
@@ -71,7 +76,7 @@ export const BuySection = () => {
               <div className="bg-orange-500 rounded-3xl w-10 h-10 border-4 border-slate-400"></div>
             </div>
             <div className="font-bold pt-8">Product Features</div>
-            <li>Internal memory : 256 GB</li>
+            <li>Internal memory : {ProductData.memory}</li>
             <li>Communicati on networks : 2G ,3G ,4G ,5G </li>
           </div>
         </div>
@@ -107,7 +112,7 @@ export const BuySection = () => {
             <div>
               <div className="flex gap-3 p-3 items-center">
                 <FaHome size={20} />
-                Available in Hitek warehouse
+              avalibility:  {ProductData.available} 
               </div>
 
               <div className="flex pl-14 gap-2 items-center">
@@ -123,7 +128,7 @@ export const BuySection = () => {
                 <IoIosPricetags size={20} color="#FAAD13" />
               </span>
               <span className="font-bold">Price |</span>
-              <span className="font-bold">1,300 $</span>
+              <span className="font-bold">{ProductData.price} $</span>
             </div>
             <AddToCartButton />
           </div>

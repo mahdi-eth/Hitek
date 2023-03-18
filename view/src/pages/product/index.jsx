@@ -9,23 +9,15 @@ import {
 } from "@/components";
 
 export function ProductPage() {
-
-
-
-  
-
   return (
-    <div className="py-10">
+    <div className="">
       <div className="container mx-auto lg:minmin-w-fit md:px-20 sm:px-16 px-8">
         <Header />
         <p className="mt-5 p-3">
           <Link to="/">Home</Link> / <Link>iPhone</Link> /{" "}
           <Link>iphone 13 promax</Link>{" "}
         </p>
-        <div className="font-semibold mx-auto pt-7 flex justify-center p-6">
-          Apple mobile phone model iPhone 12 Pro Max A2412 dual SIM card
-          capacity 256 GB
-        </div>
+    
         <BuySection />
         <hr className="mt-8" />
         <DeliverySection />
