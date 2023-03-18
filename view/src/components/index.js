@@ -17,5 +17,7 @@ export * from "./CategoriesHome";
 export * from "./whyUsHomePage";
 export * from "./ProductsHomepage";
 export * from "./searchInputHome";
+export * from "./CompareProductHome";
+export * from "./SearchInhomepage";
 
 
