@@ -20,7 +20,7 @@ export const ProductCard = ({ image, name, price, score, id }) => {
           toast.success(res.message);
         })
         .catch((err) => {
-          toast.error(err.message);
+          toast.error(err.response.data.message);
         });
     } else {
       toast.info("You must sign up first.");
