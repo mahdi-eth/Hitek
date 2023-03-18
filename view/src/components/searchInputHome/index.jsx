@@ -13,7 +13,7 @@ export default function SearchInputHome({ placeholder }) {
             />
             <input onChange={() => setchangeicon(console.log(changeicon))}
                 style={{ width: "505px", height: "76px" }}
-                className=' rounded-xl mt-9 ml-9 bg-white indent-4 appearance-none'
+                className=' rounded-xl mt-9 ml-9 bg-white indent-4 '
                 placeholder={placeholder}
             />
         </div>
