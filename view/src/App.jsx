@@ -11,7 +11,7 @@ function App() {
     if (!validPaths.includes(location.pathname)) {
       navigate("/notfound");
     }
-  }, [location.pathname, history]);
+  }, [location.pathname, navigate]);
 
   return (
     <Routes>
