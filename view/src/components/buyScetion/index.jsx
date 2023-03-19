@@ -25,7 +25,7 @@ export const BuySection = () => {
 
   return (
     <>
-      <div className="font-semibold mx-auto pt-7 flex justify-center p-6">
+      <div className="font-semibold mx-auto flex justify-center">
         {ProductData?.brand} {ProductData?.name}
         capacity 256 GB
       </div>
@@ -38,6 +38,7 @@ export const BuySection = () => {
             <BsFillShareFill opacity="50%" size={"25px"} />
             <MdOutlineStackedLineChart opacity="50%" size={"25px"} />
           </div>
+
           <img
             style={{
               height: "310px",
@@ -47,6 +48,7 @@ export const BuySection = () => {
             alt="product-image"
           />
         </div>
+        
 
         <div className=" flex flex-col p-5 gap-3">
           <div className="flex">
