@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Header } from "@/layout";
+import { Header,Footer } from "@/layout";
 import {
   TabSwitch,
   DeliverySection,
@@ -10,7 +10,7 @@ import {
 
 export function ProductPage() {
   return (
-    <div className="">
+    <div className="py-5">
       <div className="container mx-auto lg:minmin-w-fit md:px-20 sm:px-16 px-8">
         <Header />
         <p className="mt-5 p-3">
@@ -33,6 +33,7 @@ export function ProductPage() {
           <div className="w-50"></div>
         </div>
       </div>
+        <Footer/>
     </div>
   );
 }
