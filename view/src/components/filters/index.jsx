@@ -93,6 +93,7 @@ export const Filters = () => {
             className="absolute left-3 text-gray-400"
           />
           <input
+            value={search}
             onChange={updateSearchBar}
             type="text"
             placeholder="Product Name..."
