@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Checkbox } from "@/components";
 import { AiOutlineSearch } from "react-icons/ai";
 import { getFiltersService, postFiltersDataService } from "@/api";
-import { useProducts } from "@/context";
+import { useSearch, useProducts } from "@/context";
 
 export const Filters = () => {
   const [brands, setBrands] = useState([]);
@@ -15,9 +15,7 @@ export const Filters = () => {
   const [selectedCPUs, setSelectedCPUs] = useState(
     () => JSON.parse(localStorage.getItem("selectedCPUs")) || []
   );
-  const [search, setSearch] = useState(
-    () => localStorage.getItem("search") || ""
-  );
+  const { search, setSearch } = useSearch();
 
   useEffect(() => {
     localStorage.setItem("selectedBrands", JSON.stringify(selectedBrands));
@@ -26,10 +24,6 @@ export const Filters = () => {
   useEffect(() => {
     localStorage.setItem("selectedCPUs", JSON.stringify(selectedCPUs));
   }, [selectedCPUs]);
-
-  useEffect(() => {
-    localStorage.setItem("search", search);
-  }, [search]);
 
   const handleBrandChange = (event) => {
     const { value, checked } = event.target;
