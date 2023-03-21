@@ -95,8 +95,7 @@ export function Products() {
                     {pageNumbers.map((number) => (
                       <li key={number} className="page-item">
                         <a
-                          href="#"
-                          className={`page-link ${
+                          className={`page-link cursor-pointer ${
                             currentPage === number
                               ? "bg-blue-500 rounded-lg py-2 px-3 text-white"
                               : "bg-white py-2 px-3 text-gray-800"

@@ -38,7 +38,7 @@ export const ProductCard = ({ image, name, price, score, id }) => {
 
   return (
     <div
-      className="w-full flex flex-col items-center justify-center min-h-400 gap-8 py-7 rounded-lg overflow-hidden shadow-lg bg-green-50"
+      className="w-full flex flex-col items-center justify-center min-h-400 gap-8 py-7 rounded-lg overflow-hidden shadow-lg bg-green-50 hover:shadow-inner cursor-pointer transform duration-150"
       onClick={handleCardClick}>
       {!imageLoaded && (
         <div role="status">

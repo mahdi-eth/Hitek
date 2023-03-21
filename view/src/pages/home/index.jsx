@@ -25,7 +25,7 @@ import modena from "@/assets/images/homeImg/modena.svg";
 import { CompareProduct } from "@/components"
 import katana from "@/assets/images/homeImg/katana.svg";
 import { SearchHome } from "@/components"
-
+import { Footer } from "@/layout";
 
 export function HomePage() {
     return (
@@ -232,6 +232,9 @@ export function HomePage() {
                 />
             </div>
             <SearchHome />
+            <div>
+                <Footer />
+            </div>
         </div>
     )
 }

@@ -6,3 +6,4 @@ export * from "./postFilters";
 export * from "./headerFilter";
 export * from "./addToBasket";
 export * from "./contactus";
+export * from './fetchSingleProduct'
