@@ -22,33 +22,34 @@ export const BuySection = () => {
       setProductData(singleProductData);
     });
   }, [productId]);
+  console.log(ProductData);
 
   return (
-    <>
-      <div className="font-semibold mx-auto flex justify-center">
+    <div className="flex flex-col gap-2 px-4">
+      <div className="flex justify-center font-bold">
         {ProductData?.brand} {ProductData?.name}
-        capacity 256 GB
+        {ProductData?.features?.memory}
       </div>
       <div
-        className="flex flex-row flex-wrap  sm:items-center"
+        className="flex  sm:items-center w-full flex-wrap  justify-center"
         id="product-section">
-        <div className="flex flex-row items-center  p-5">
+        <div className="flex flex-row items-center">
           <div className="flex flex-col p-2 pb-32 gap-3">
             <CiHeart opacity="50%" size={"25px"} />
             <BsFillShareFill opacity="50%" size={"25px"} />
             <MdOutlineStackedLineChart opacity="50%" size={"25px"} />
           </div>
-
-          <img
-            style={{
-              height: "310px",
-              width: "230px"
-            }}
-            src={ProductData?.image}
-            alt="product-image"
-          />
+          <div>
+            <img
+              style={{
+                height: "310px",
+                width: "230px"
+              }}
+              src={ProductData?.image}
+              alt="product-image"
+            />
+          </div>
         </div>
-        
 
         <div className=" flex flex-col p-5 gap-3">
           <div className="flex">
@@ -135,6 +136,6 @@ export const BuySection = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
